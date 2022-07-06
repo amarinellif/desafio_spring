@@ -24,7 +24,17 @@ public class ProductController {
         return new ResponseEntity(updatedProductList, HttpStatus.OK);
     }
 
+    @GetMapping("/articles")
+    public ResponseEntity<List<ProductDto>> getAllProducts() {
+        List<ProductDto> listProducts = productService.getAllProducts();
+        return new ResponseEntity<>(listProducts, HttpStatus.OK);
+    }
+
     @GetMapping()
+    public ResponseEntity<List <ProductDto>> getProductsByCategory(@RequestParam("category") String category) {
+        List<ProductDto> listProductsByCategory = productService.getProductsByCategory(category);
+        return new ResponseEntity<>(listProductsByCategory, HttpStatus.OK);
+    }
 }
 
 
