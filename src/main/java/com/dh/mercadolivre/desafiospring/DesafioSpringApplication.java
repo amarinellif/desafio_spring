@@ -8,6 +8,7 @@ public class DesafioSpringApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioSpringApplication.class, args);
+
 	}
 
 }
