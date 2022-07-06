@@ -12,4 +12,11 @@
   "price" : 500.0,
   "quantity" : 7,
   "freeShipping" : true
+}, {
+  "productId" : 3,
+  "name" : "Camisa",
+  "brand" : "Fila",
+  "price" : 79.0,
+  "quantity" : 2,
+  "freeShipping" : true
 } ]
