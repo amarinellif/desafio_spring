@@ -18,10 +18,17 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/insert-articles-request")
-    public ResponseEntity<List<Product>> saveProducts(@RequestBody List<Product> productList) {
-        List<ProductDto> updatedProductList = productService.saveProduct(productList);
+    public ResponseEntity<List<ProductDto>> saveProductList(@RequestBody List<Product> productList) {
+        List<ProductDto> updatedProductList = productService.saveProductList(productList);
 
-        return new ResponseEntity(updatedProductList, HttpStatus.OK);
+        return new ResponseEntity<List<ProductDto>>(updatedProductList, HttpStatus.OK);
+    }
+
+    @PostMapping("/insert-article-request")
+    public ResponseEntity<ProductDto> saveProduct(@RequestBody Product product) {
+        ProductDto productDto = productService.saveProduct(product);
+
+        return new ResponseEntity<ProductDto>(productDto, HttpStatus.OK);
     }
 
     @GetMapping("/articles")
