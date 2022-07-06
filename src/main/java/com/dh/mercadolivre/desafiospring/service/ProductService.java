@@ -24,6 +24,16 @@ public class ProductService implements IProductService {
                 .collect(Collectors.toList());
     }
 
+
+    public List<ProductDto> getAllProducts() {
+        List<Product> listProducts = productRepository.getAllProducts();
+        List<ProductDto> listDto = listProducts.stream()
+                                    .map(ProductDto::new).collect(Collectors.toList());
+
+        return listDto;
+
+    }
+
     @Override
     public List<ProductDto> getProductsByCategory(String category) {
         List<Product> productsList = productRepository.getAllProducts();
