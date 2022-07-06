@@ -37,4 +37,17 @@ public class ProductRepository {
 
         return copyList;
     }
+
+    public List<Product> getAllProducts() {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Product> listProducts = null;
+        try {
+            listProducts = Arrays.asList
+                    (mapper.readValue(new File(filePath), Product[].class));
+
+        } catch (Exception ex) {
+            System.out.println("Erro no aquivo " + filePath);
+        }
+        return listProducts;
+    }
 }
