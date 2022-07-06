@@ -37,7 +37,8 @@ public class ProductService implements IProductService {
     @Override
     public List<ProductDto> getProductsByCategory(String category) {
         List<Product> productsList = productRepository.getAllProducts();
-        return productsList.stream().filter(product -> product.getCategory().equals(category))
+        return productsList.stream()
+                .filter(product -> product.getCategory().equals(category))
                 .map(ProductDto::new)
                 .collect(Collectors.toList());
     }
