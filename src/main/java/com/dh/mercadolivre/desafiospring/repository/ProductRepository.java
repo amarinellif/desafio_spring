@@ -15,24 +15,26 @@ import java.util.List;
 public class ProductRepository {
     private final String filePath = "src/main/resources/product.json";
 
-    public List<Product> saveProduct(ArrayList<Product> productList) {
+    public List<Product> saveProduct(List<Product> productList) {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
 
         List<Product> existentProductList = null;
+        List<Product> copyList = null;
 
         try {
             existentProductList = Arrays.asList(mapper.readValue(new File(filePath), Product[].class));
+            copyList = new ArrayList<Product>(existentProductList);
 
             for (int i = 0; i < productList.size(); i++) {
-                existentProductList.add(productList.get(i));
+                copyList.add(productList.get(i));
             }
 
-            writer.writeValue(new File(filePath), existentProductList);
+            writer.writeValue(new File(filePath), copyList);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e);
         }
 
-        return existentProductList;
+        return copyList;
     }
 }
