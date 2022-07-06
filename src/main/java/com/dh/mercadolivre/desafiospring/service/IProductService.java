@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface IProductService {
     List<ProductDto> saveProduct(List<Product> productList);
+    List<ProductDto> getAllProducts();
     List<ProductDto> getProductsByCategory(String category);
 }
