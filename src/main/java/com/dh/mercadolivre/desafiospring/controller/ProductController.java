@@ -6,10 +6,7 @@ import com.dh.mercadolivre.desafiospring.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,12 @@ public class ProductController {
         List<ProductDto> updatedProductList = productService.saveProduct(productList);
 
         return new ResponseEntity(updatedProductList, HttpStatus.OK);
+    }
+
+    @GetMapping("/articles")
+    public ResponseEntity<List<ProductDto>> getAllProducts() {
+        List<ProductDto> listProducts = productService.getAllProducts();
+        return new ResponseEntity(listProducts, HttpStatus.OK);
     }
 }
 
