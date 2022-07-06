@@ -30,8 +30,8 @@ public class ProductController {
         return new ResponseEntity<>(listProducts, HttpStatus.OK);
     }
 
-    @GetMapping()
-    public ResponseEntity<List <ProductDto>> getProductsByCategory(@RequestParam("category") String category) {
+    @GetMapping("/articles/category")
+    public ResponseEntity<List <ProductDto>> getProductsByCategory(@RequestParam String category) {
         List<ProductDto> listProductsByCategory = productService.getProductsByCategory(category);
         return new ResponseEntity<>(listProductsByCategory, HttpStatus.OK);
     }
