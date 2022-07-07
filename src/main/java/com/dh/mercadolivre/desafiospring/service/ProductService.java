@@ -32,7 +32,7 @@ public class ProductService implements IProductService {
 
         return new ProductDto(insertedProduct);
     }
-  
+
     @Override
     public List<ProductDto> getProductsByCategory(String category) {
         List<Product> productsList = productRepository.getAllProducts();
@@ -40,24 +40,24 @@ public class ProductService implements IProductService {
                 .filter(product -> product.getCategory().equals(category))
                 .map(ProductDto::new)
                 .collect(Collectors.toList());
-
+    }
 
     public List<ProductDto> getByFilterOrdered(String category, Boolean freeShipping, String prestige, Integer order) {
         List<Product> listProducts = productRepository.getAllProducts();
 
-        if(category != null) {
+        if (category != null) {
             listProducts = filterByCategoryName(listProducts, category);
         }
 
-        if(freeShipping != null){
+        if (freeShipping != null) {
             listProducts = filterByFreeShipping(listProducts, freeShipping);
         }
 
         if (prestige != null) {
-          listProducts = filterByPrestige(listProducts, prestige);
+            listProducts = filterByPrestige(listProducts, prestige);
         }
 
-        if(order != null) {
+        if (order != null) {
             listProducts = sortByOrder(listProducts, order);
         }
 
@@ -66,11 +66,11 @@ public class ProductService implements IProductService {
 
         return listDto;
 
-}
+    }
 
     private static List<Product> filterByCategoryName(List<Product> productList, String category) {
 
-      return productList.stream().filter((product) -> category.equals(product.getCategory())).collect(Collectors.toList());
+        return productList.stream().filter((product) -> category.equals(product.getCategory())).collect(Collectors.toList());
     }
 
     private static List<Product> filterByFreeShipping(List<Product> productList, Boolean freeShipping) {
@@ -82,12 +82,17 @@ public class ProductService implements IProductService {
     }
 
     private static List<Product> sortByOrder(List<Product> productList, Integer order) {
-        switch (order){
-            case 0: return productList.stream().sorted((p1, p2) -> p1.getName().compareTo(p2.getName())).collect(Collectors.toList());
-            case 1: return productList.stream().sorted((p1, p2) -> p2.getName().compareTo(p1.getName())).collect(Collectors.toList());
-            case 2: return productList.stream().sorted((p1, p2) -> p1.getPrice().compareTo(p2.getPrice())).collect(Collectors.toList());
-            case 3: return productList.stream().sorted((p1, p2) -> p2.getPrice().compareTo(p1.getPrice())).collect(Collectors.toList());
-            default: return productList;
+        switch (order) {
+            case 0:
+                return productList.stream().sorted((p1, p2) -> p1.getName().compareTo(p2.getName())).collect(Collectors.toList());
+            case 1:
+                return productList.stream().sorted((p1, p2) -> p2.getName().compareTo(p1.getName())).collect(Collectors.toList());
+            case 2:
+                return productList.stream().sorted((p1, p2) -> p1.getPrice().compareTo(p2.getPrice())).collect(Collectors.toList());
+            case 3:
+                return productList.stream().sorted((p1, p2) -> p2.getPrice().compareTo(p1.getPrice())).collect(Collectors.toList());
+            default:
+                return productList;
         }
     }
 }

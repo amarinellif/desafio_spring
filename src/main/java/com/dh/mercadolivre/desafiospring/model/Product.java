@@ -18,5 +18,4 @@ public class Product {
     private Double price;
     private Integer quantity;
     private Boolean freeShipping;
-    private String prestige;
 }
