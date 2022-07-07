@@ -24,8 +24,12 @@ public class ClientController {
         return new ResponseEntity<ClientDto>(insertedClient, HttpStatus.OK);
     }
 
-    // @GetMapping("/client")
-    // public ResponseEntity<List<ClientDto>> getAllClient() {}
+    @GetMapping("/client")
+    public ResponseEntity<List<ClientDto>> getAllClient() {
+        List<ClientDto> clientList = clientService.getAllClient();
+
+        return new ResponseEntity<List<ClientDto>>(clientList, HttpStatus.OK);
+    }
 
     // @GetMapping("/client/{state}")
     // public ResponseEntity<List<ClientDto>> getClientFilteredByState(@RequestParam String state) {}
