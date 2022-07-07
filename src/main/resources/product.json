@@ -1,1 +1,28 @@
-[]
+[ {
+  "productId" : 1,
+  "name" : "Serra de Bancada",
+  "category" : "Ferramentas",
+  "brand" : "FORTGPRO",
+  "prestige" : "****",
+  "price" : 1800.0,
+  "quantity" : 25,
+  "freeShipping" : true
+}, {
+  "productId" : 2,
+  "name" : "Furadeira",
+  "category" : "Ferramentas",
+  "brand" : "Black & Decker",
+  "prestige" : "****",
+  "price" : 500.0,
+  "quantity" : 35,
+  "freeShipping" : true
+}, {
+  "productId" : 3,
+  "name" : "Camisa",
+  "category" : "Roupas",
+  "brand" : "Fila",
+  "prestige" : "****",
+  "price" : 79.0,
+  "quantity" : 18,
+  "freeShipping" : true
+} ]
