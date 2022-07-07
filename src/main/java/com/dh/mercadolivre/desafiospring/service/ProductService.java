@@ -25,12 +25,21 @@ public class ProductService implements IProductService {
                 .collect(Collectors.toList());
     }
 
+
     @Override
     public ProductDto saveProduct(Product product) {
         Product insertedProduct = productRepository.saveProduct(product);
 
         return new ProductDto(insertedProduct);
     }
+  
+    @Override
+    public List<ProductDto> getProductsByCategory(String category) {
+        List<Product> productsList = productRepository.getAllProducts();
+        return productsList.stream()
+                .filter(product -> product.getCategory().equals(category))
+                .map(ProductDto::new)
+                .collect(Collectors.toList());
 
 
     public List<ProductDto> getByFilterOrdered(String category, Boolean freeShipping, String prestige, Integer order) {
@@ -58,11 +67,6 @@ public class ProductService implements IProductService {
         return listDto;
 
 }
-
-    private static List<Product> filterByCategoryName(List<Product> productList, String category) {
-
-      return productList.stream().filter((product) -> category.equals(product.getCategory())).collect(Collectors.toList());
-    }
 
     private static List<Product> filterByCategoryName(List<Product> productList, String category) {
 

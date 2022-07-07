@@ -31,6 +31,11 @@ public class ProductController {
         return new ResponseEntity<ProductDto>(productDto, HttpStatus.OK);
     }
 
+    @GetMapping("/articles/category")
+    public ResponseEntity<List <ProductDto>> getProductsByCategory(@RequestParam String category) {
+        List<ProductDto> listProductsByCategory = productService.getProductsByCategory(category);
+        return new ResponseEntity<>(listProductsByCategory, HttpStatus.OK);
+
     @GetMapping("/articles")
     public ResponseEntity<List<ProductDto>> getByFilterOrdered(@RequestParam(required = false) String category,
                                                                 @RequestParam(required = false) Boolean freeShipping,
@@ -40,6 +45,7 @@ public class ProductController {
        List<ProductDto> filteredList = productService.getByFilterOrdered(category, freeShipping, prestige, order);
 
         return new ResponseEntity<>(filteredList, HttpStatus.OK);
+
     }
 }
 
