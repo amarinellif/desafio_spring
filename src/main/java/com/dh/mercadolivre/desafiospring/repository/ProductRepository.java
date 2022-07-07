@@ -12,6 +12,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class ProductRepository {
@@ -29,7 +30,22 @@ public class ProductRepository {
             copyList = new ArrayList<Product>(existentProductList);
 
             for (int i = 0; i < productList.size(); i++) {
-                copyList.add(productList.get(i));
+                Product currentProduct = productList.get(i);
+
+                List<Product> hasProduct = copyList
+                        .stream()
+                        .filter(product -> product.getProductId() == currentProduct.getProductId())
+                        .collect(Collectors.toList());
+
+                if (hasProduct.size() != 0) {
+                    Product productToBeUpdated = hasProduct.get(0);
+
+                    int finalQuantity = productToBeUpdated.getQuantity() + currentProduct.getQuantity();
+
+                    productToBeUpdated.setQuantity(finalQuantity);
+                } else {
+                    copyList.add(productList.get(i));
+                }
             }
 
             writer.writeValue(new File(filePath), copyList);
