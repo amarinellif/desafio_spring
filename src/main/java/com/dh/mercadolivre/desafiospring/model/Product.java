@@ -14,6 +14,7 @@ public class Product {
     private String name;
     private String category;
     private String brand;
+    private String prestige;
     private Double price;
     private Integer quantity;
     private Boolean freeShipping;
