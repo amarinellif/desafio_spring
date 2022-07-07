@@ -35,7 +35,7 @@ public class ProductRepository {
             for (Product currentProduct : productList) {
                 this.insertProduct(currentProductCopyList, currentProduct);
             }
-            writer.writeValue(new File(filePath), copyList);
+            writer.writeValue(new File(filePath), currentProductCopyList);
         } catch (IIOException e) {
             System.out.println("Erro no aquivo: " + filePath);
             throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
@@ -114,10 +114,6 @@ public class ProductRepository {
         try {
             lista = Arrays.asList
                     (mapper.readValue(new File(filePath), Product[].class));
-        } catch (Exception ex) {
-
-
-            writer.writeValue(new File(filePath), copyList);
         } catch (IIOException e) {
             System.out.println("Erro no aquivo: " + filePath);
             throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
