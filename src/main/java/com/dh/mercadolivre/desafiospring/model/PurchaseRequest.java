@@ -11,6 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PurchaseRequest {
-    private int productId;
-    private int quantity;
+    private Long productId;
+    private Integer quantity;
 }
