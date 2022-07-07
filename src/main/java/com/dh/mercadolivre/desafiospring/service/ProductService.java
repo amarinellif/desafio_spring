@@ -6,7 +6,6 @@ import com.dh.mercadolivre.desafiospring.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,11 +56,6 @@ public class ProductService implements IProductService {
 
         return listDto;
 
-}
-
-    private static List<Product> filterByCategoryName(List<Product> productList, String category) {
-
-      return productList.stream().filter((product) -> category.equals(product.getCategory())).collect(Collectors.toList());
     }
 
     private static List<Product> filterByCategoryName(List<Product> productList, String category) {
