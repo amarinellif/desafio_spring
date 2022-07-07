@@ -127,7 +127,35 @@ public class ProductRepository {
             }
         }
         
-        // throw new NotFoundException("Produto inexistente");
-        return null;
+        throw new NotFoundException("Produto inexistente");
     }
+
+    public void updateQuantity(Long productId, Integer quantity){
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+        List<Product> lista = null;
+
+        try {
+            lista = Arrays.asList
+                    (mapper.readValue(new File(filePath), Product[].class));
+
+            List<Product> copyList = new ArrayList<Product>(lista);
+
+            for (Product p : copyList) {
+                if (p.getProductId().equals(productId)) {
+                    p.setQuantity(p.getQuantity() - quantity);
+                }
+            }
+
+            writer.writeValue(new File(filePath), copyList);
+
+        } catch (IIOException e) {
+            System.out.println("Erro no aquivo: " + filePath);
+            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
+        } catch (Exception ex) {
+            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
+        }
+
+    }
+
 }
