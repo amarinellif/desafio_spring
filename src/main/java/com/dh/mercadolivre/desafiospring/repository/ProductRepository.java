@@ -1,5 +1,7 @@
 package com.dh.mercadolivre.desafiospring.repository;
 
+
+import com.dh.mercadolivre.desafiospring.exceptions.NotFoundException;
 import com.dh.mercadolivre.desafiospring.model.Product;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -71,5 +73,23 @@ public class ProductRepository {
         }
 
         return product;
+    }
+    
+    public Product getProductById(Long productId) {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Product> lista = null;
+        try {
+            lista = Arrays.asList
+                    (mapper.readValue(new File(filePath), Product[].class));
+        } catch (Exception ex) {
+
+        }
+        for (Product p : lista) {
+            if (p.getProductId().equals(productId)) {
+                return p;
+            }
+        }
+//        throw new NotFoundException("Produto inexistente");
+        return null;
     }
 }
