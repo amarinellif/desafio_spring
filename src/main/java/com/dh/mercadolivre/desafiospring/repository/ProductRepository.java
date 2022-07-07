@@ -1,11 +1,14 @@
 package com.dh.mercadolivre.desafiospring.repository;
 
+import com.dh.mercadolivre.desafiospring.exceptions.NotFoundException;
+import com.dh.mercadolivre.desafiospring.exceptions.ServerException;
 import com.dh.mercadolivre.desafiospring.model.Product;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import org.springframework.stereotype.Repository;
 
+import javax.imageio.IIOException;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +25,7 @@ public class ProductRepository {
         List<Product> existentProductList = null;
         List<Product> copyList = null;
 
+
         try {
             existentProductList = Arrays.asList(mapper.readValue(new File(filePath), Product[].class));
             copyList = new ArrayList<Product>(existentProductList);
@@ -31,8 +35,11 @@ public class ProductRepository {
             }
 
             writer.writeValue(new File(filePath), copyList);
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (IIOException e) {
+            System.out.println("Erro no aquivo: " + filePath);
+            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
+        } catch (Exception ex) {
+            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
         }
 
         return copyList;
@@ -44,8 +51,11 @@ public class ProductRepository {
         try {
             listProducts = Arrays.asList
                     (mapper.readValue(new File(filePath), Product[].class));
+        } catch (IIOException e) {
+            System.out.println("Erro no aquivo: " + filePath);
+            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
         } catch (Exception ex) {
-            System.out.println("Erro no aquivo " + filePath);
+            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
         }
 
         return listProducts;
@@ -66,8 +76,11 @@ public class ProductRepository {
             copyList.add(product);
 
             writer.writeValue(new File(filePath), copyList);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (IIOException e) {
+            System.out.println("Erro no aquivo: " + filePath);
+            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
+        } catch (Exception ex) {
+            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
         }
 
         return product;
