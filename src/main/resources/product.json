@@ -5,7 +5,7 @@
   "brand" : "FORTGPRO",
   "prestige" : "****",
   "price" : 1800.0,
-  "quantity" : 25,
+  "quantity" : 20,
   "freeShipping" : true
 }, {
   "productId" : 2,
@@ -14,7 +14,7 @@
   "brand" : "Black & Decker",
   "prestige" : "****",
   "price" : 500.0,
-  "quantity" : 35,
+  "quantity" : 5,
   "freeShipping" : true
 }, {
   "productId" : 3,
