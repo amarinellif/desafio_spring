@@ -6,7 +6,9 @@ import com.dh.mercadolivre.desafiospring.model.Product;
 import java.util.List;
 
 public interface IProductService {
-    List<ProductDto> saveProduct(List<Product> productList);
-
     List<ProductDto> getAllProducts();
+
+    List<ProductDto> saveProductList(List<Product> productList);
+    
+    ProductDto saveProduct(Product product);
 }
