@@ -52,20 +52,20 @@ public class ProductService implements IProductService {
 
 }
 
-    public static List<Product> filterByCategoryName(List<Product> productList, String category) {
+    private static List<Product> filterByCategoryName(List<Product> productList, String category) {
 
       return productList.stream().filter((product) -> category.equals(product.getCategory())).collect(Collectors.toList());
     }
 
-    public static List<Product> filterByFreeShipping(List<Product> productList, Boolean freeShipping) {
+    private static List<Product> filterByFreeShipping(List<Product> productList, Boolean freeShipping) {
         return productList.stream().filter((product) -> freeShipping.equals(product.getFreeShipping())).collect(Collectors.toList());
     }
 
-    public static List<Product> filterByPrestige(List<Product> productList, String prestige) {
+    private static List<Product> filterByPrestige(List<Product> productList, String prestige) {
         return productList.stream().filter((product) -> prestige.equals(product.getPrestige())).collect(Collectors.toList());
     }
 
-    public static List<Product> sortByOrder(List<Product> productList, Integer order) {
+    private static List<Product> sortByOrder(List<Product> productList, Integer order) {
         switch (order){
             case 0: return productList.stream().sorted((p1, p2) -> p1.getName().compareTo(p2.getName())).collect(Collectors.toList());
             case 1: return productList.stream().sorted((p1, p2) -> p2.getName().compareTo(p1.getName())).collect(Collectors.toList());
