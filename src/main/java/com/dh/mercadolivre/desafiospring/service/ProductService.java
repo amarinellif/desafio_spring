@@ -16,8 +16,8 @@ public class ProductService implements IProductService {
     private ProductRepository productRepository;
 
     @Override
-    public List<ProductDto> saveProduct(List<Product> productList) {
-        List<Product> updatedProductList = productRepository.saveProduct(productList);
+    public List<ProductDto> saveProductList(List<Product> productList) {
+        List<Product> updatedProductList = productRepository.saveProductList(productList);
 
         return updatedProductList.stream()
                 .map(ProductDto::new)
@@ -34,5 +34,10 @@ public class ProductService implements IProductService {
 
     }
 
+    @Override
+    public ProductDto saveProduct(Product product) {
+        Product insertedProduct = productRepository.saveProduct(product);
 
+        return new ProductDto(insertedProduct);
+    }
 }

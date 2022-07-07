@@ -15,7 +15,7 @@ import java.util.List;
 public class ProductRepository {
     private final String filePath = "src/main/resources/product.json";
 
-    public List<Product> saveProduct(List<Product> productList) {
+    public List<Product> saveProductList(List<Product> productList) {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
 
@@ -44,10 +44,32 @@ public class ProductRepository {
         try {
             listProducts = Arrays.asList
                     (mapper.readValue(new File(filePath), Product[].class));
-
         } catch (Exception ex) {
             System.out.println("Erro no aquivo " + filePath);
         }
+
         return listProducts;
+    }
+
+    public Product saveProduct(Product product) {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+
+        List<Product> productList = null;
+        List<Product> copyList = null;
+
+        try {
+            productList = Arrays.asList(mapper.readValue(new File(filePath), Product[].class));
+
+            copyList = new ArrayList<Product>(productList);
+
+            copyList.add(product);
+
+            writer.writeValue(new File(filePath), copyList);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return product;
     }
 }
