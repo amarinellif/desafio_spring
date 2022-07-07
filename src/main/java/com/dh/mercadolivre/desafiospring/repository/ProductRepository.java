@@ -63,7 +63,7 @@ public class ProductRepository {
             listProducts = Arrays.asList
                     (mapper.readValue(new File(filePath), Product[].class));
         } catch (Exception ex) {
-            System.out.println("Erro no aquivo " + filePath);
+            System.out.println(ex);
         }
 
         return listProducts;
