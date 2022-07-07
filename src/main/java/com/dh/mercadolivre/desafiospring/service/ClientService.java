@@ -1,6 +1,7 @@
 package com.dh.mercadolivre.desafiospring.service;
 
 import com.dh.mercadolivre.desafiospring.dto.ClientDto;
+import com.dh.mercadolivre.desafiospring.exceptions.InvalidParamsException;
 import com.dh.mercadolivre.desafiospring.model.Client;
 import com.dh.mercadolivre.desafiospring.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,23 +21,23 @@ public class ClientService implements IClientService {
         String cpfRegex = "(^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$)";
 
         if (client.getName() == null || !client.getName().matches(nameRegex)) {
-            // throw new Exception("Invalid name!");
+             throw new InvalidParamsException("Nome inválido!");
         }
 
         if (client.getCpf() == null || !client.getCpf().matches(cpfRegex)) {
-            // throw new Exception("Invalid cpf!");
+            throw new InvalidParamsException("CPF inválido!");
         }
 
         if (client.getAddress() == null) {
-            // throw new Exception("Invalid address!");
+            throw new InvalidParamsException("Endereço inválido!");
         }
 
         if (client.getCity() == null) {
-            // throw new Exception("Invalid city!");
+            throw new InvalidParamsException("Cidade inválida!");
         }
 
         if (client.getState() == null) {
-            // throw new Exception("Invalid state!");
+            throw new InvalidParamsException("Estado inválido!");
         }
 
         Client insertedClient = clientRepository.saveClient(client);
