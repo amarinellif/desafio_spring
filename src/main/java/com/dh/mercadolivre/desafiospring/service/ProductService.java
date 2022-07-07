@@ -57,6 +57,11 @@ public class ProductService implements IProductService {
 
         return listDto;
 
+}
+
+    private static List<Product> filterByCategoryName(List<Product> productList, String category) {
+
+      return productList.stream().filter((product) -> category.equals(product.getCategory())).collect(Collectors.toList());
     }
 
     private static List<Product> filterByCategoryName(List<Product> productList, String category) {
