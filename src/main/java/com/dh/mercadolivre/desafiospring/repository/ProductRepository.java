@@ -38,9 +38,9 @@ public class ProductRepository {
             writer.writeValue(new File(filePath), currentProductCopyList);
         } catch (IIOException e) {
             System.out.println("Erro no aquivo: " + filePath);
-            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
+            throw new ServerException("Algo de errado aconteceu! Tente novamente mais tarde.");
         } catch (Exception ex) {
-            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
+            throw new ServerException("Algo de errado aconteceu! Tente novamente mais tarde.");
         }
 
         return currentProductCopyList;
@@ -66,29 +66,33 @@ public class ProductRepository {
 
             product.setQuantity(updatedProduct.get(0).getQuantity());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            throw new ServerException("Algo de errado aconteceu! Tente novamente mais tarde.");
         }
 
         return product;
     }
 
     public List<Product> insertProduct(List<Product> productList, Product product) {
-        List<Product> hasProduct = productList
-                .stream()
-                .filter(existentProduct -> product.getProductId() == existentProduct.getProductId())
-                .collect(Collectors.toList());
+        try {
+            List<Product> hasProduct = productList
+                    .stream()
+                    .filter(existentProduct -> product.getProductId() == existentProduct.getProductId())
+                    .collect(Collectors.toList());
 
-        if (hasProduct.size() != 0) {
-            Product productToBeUpdated = hasProduct.get(0);
+            if (hasProduct.size() != 0) {
+                Product productToBeUpdated = hasProduct.get(0);
 
-            int finalQuantity = productToBeUpdated.getQuantity() + product.getQuantity();
+                int finalQuantity = productToBeUpdated.getQuantity() + product.getQuantity();
 
-            productToBeUpdated.setQuantity(finalQuantity);
-        } else {
-            productList.add(product);
+                productToBeUpdated.setQuantity(finalQuantity);
+            } else {
+                productList.add(product);
+            }
+
+            return productList;
+        } catch (Exception e) {
+            throw new ServerException("Algo de errado aconteceu! Tente novamente mais tarde.");
         }
-        
-        return productList;
     }
 
     public List<Product> getAllProducts() {
