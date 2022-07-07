@@ -51,4 +51,6 @@ public class ClientRepository {
 
         return client;
     }
+
+    public List<Client> getAllClient() {}
 }
