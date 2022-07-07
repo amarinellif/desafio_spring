@@ -1,7 +1,6 @@
 package com.dh.mercadolivre.desafiospring.repository;
 
 import com.dh.mercadolivre.desafiospring.model.Client;
-import com.dh.mercadolivre.desafiospring.model.Product;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -37,7 +36,7 @@ public class ClientRepository {
                 .collect(Collectors.toList());
 
         if (clientAlreadyExists.size() > 0) {
-            // throw new Exception(Client already exists);
+            // throw new Exception("Client already exists!");
         }
 
         copyList.add(client);
