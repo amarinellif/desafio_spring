@@ -35,17 +35,17 @@ public class ProductController {
     public ResponseEntity<List <ProductDto>> getProductsByCategory(@RequestParam String category) {
         List<ProductDto> listProductsByCategory = productService.getProductsByCategory(category);
         return new ResponseEntity<>(listProductsByCategory, HttpStatus.OK);
+    }
 
     @GetMapping("/articles")
     public ResponseEntity<List<ProductDto>> getByFilterOrdered(@RequestParam(required = false) String category,
                                                                 @RequestParam(required = false) Boolean freeShipping,
                                                                 @RequestParam(required = false) String prestige,
-                                                                @RequestParam(required = false) Integer order) {
+                                                                @RequestParam(required = false) Integer order){
 
-       List<ProductDto> filteredList = productService.getByFilterOrdered(category, freeShipping, prestige, order);
+            List<ProductDto> filteredList = productService.getByFilterOrdered(category, freeShipping, prestige, order);
 
-        return new ResponseEntity<>(filteredList, HttpStatus.OK);
-
+            return new ResponseEntity<>(filteredList, HttpStatus.OK);
     }
 }
 
