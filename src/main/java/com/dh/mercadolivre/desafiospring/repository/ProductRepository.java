@@ -20,38 +20,68 @@ public class ProductRepository {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
 
-        List<Product> existentProductList = null;
-        List<Product> copyList = null;
+        List<Product> currentProductList = null;
+        List<Product> currentProductCopyList = null;
 
         try {
-            existentProductList = Arrays.asList(mapper.readValue(new File(filePath), Product[].class));
-            copyList = new ArrayList<Product>(existentProductList);
+            currentProductList = Arrays.asList(mapper.readValue(new File(filePath), Product[].class));
+            currentProductCopyList = new ArrayList<Product>(currentProductList);
 
-            for (int i = 0; i < productList.size(); i++) {
-                Product currentProduct = productList.get(i);
-
-                List<Product> hasProduct = copyList
-                        .stream()
-                        .filter(product -> product.getProductId() == currentProduct.getProductId())
-                        .collect(Collectors.toList());
-
-                if (hasProduct.size() != 0) {
-                    Product productToBeUpdated = hasProduct.get(0);
-
-                    int finalQuantity = productToBeUpdated.getQuantity() + currentProduct.getQuantity();
-
-                    productToBeUpdated.setQuantity(finalQuantity);
-                } else {
-                    copyList.add(productList.get(i));
-                }
+            for (Product currentProduct : productList) {
+                this.insertProduct(currentProductCopyList, currentProduct);
             }
 
-            writer.writeValue(new File(filePath), copyList);
+            writer.writeValue(new File(filePath), currentProductCopyList);
         } catch (Exception e) {
             System.out.println(e);
         }
 
-        return copyList;
+        return currentProductCopyList;
+    }
+
+    public Product saveProduct(Product product) {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+
+        List<Product> productList = null;
+
+        try {
+            productList = Arrays.asList(mapper.readValue(new File(filePath), Product[].class));
+
+            List<Product> finalProductList = this.insertProduct(new ArrayList<Product>(productList), product);
+
+            writer.writeValue(new File(filePath), finalProductList);
+
+            List<Product> updatedProduct = finalProductList
+                    .stream()
+                    .filter(product1 -> product.getProductId() == product1.getProductId())
+                    .collect(Collectors.toList());
+
+            product.setQuantity(updatedProduct.get(0).getQuantity());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return product;
+    }
+
+    public List<Product> insertProduct(List<Product> productList, Product product) {
+        List<Product> hasProduct = productList
+                .stream()
+                .filter(existentProduct -> product.getProductId() == existentProduct.getProductId())
+                .collect(Collectors.toList());
+
+        if (hasProduct.size() != 0) {
+            Product productToBeUpdated = hasProduct.get(0);
+
+            int finalQuantity = productToBeUpdated.getQuantity() + product.getQuantity();
+
+            productToBeUpdated.setQuantity(finalQuantity);
+        } else {
+            productList.add(product);
+        }
+
+        return productList;
     }
 
     public List<Product> getAllProducts() {
@@ -65,27 +95,5 @@ public class ProductRepository {
         }
 
         return listProducts;
-    }
-
-    public Product saveProduct(Product product) {
-        ObjectMapper mapper = new ObjectMapper();
-        ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
-
-        List<Product> productList = null;
-        List<Product> copyList = null;
-
-        try {
-            productList = Arrays.asList(mapper.readValue(new File(filePath), Product[].class));
-
-            copyList = new ArrayList<Product>(productList);
-
-            copyList.add(product);
-
-            writer.writeValue(new File(filePath), copyList);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        return product;
     }
 }
