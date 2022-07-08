@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class ClientAlreadyExistsException extends RuntimeException {
 
     /**
-     *
+     * @author Diovana
      * @param message
      */
     public ClientAlreadyExistsException(String message) {
