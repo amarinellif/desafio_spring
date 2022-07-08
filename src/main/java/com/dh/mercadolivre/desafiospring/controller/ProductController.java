@@ -49,6 +49,7 @@ public class ProductController {
         return new ResponseEntity<>(productDto, HttpStatus.OK);
     }
 
+<<<<<<< HEAD
     /**
      * Method to get a list of product by category through the endpoint "/api/v1/articles/category".
      * @param category received by url.
@@ -56,6 +57,10 @@ public class ProductController {
      */
     @GetMapping("/articles/category")
     public ResponseEntity<List <ProductDto>> getProductsByCategory(@RequestParam String category) {
+=======
+    @GetMapping("/articles/{category}")
+    public ResponseEntity<List <ProductDto>> getProductsByCategory(@PathVariable String category) {
+>>>>>>> c4d3d348d333d28f711c4804c6a2601d3692f975
         List<ProductDto> listProductsByCategory = productService.getProductsByCategory(category);
         return new ResponseEntity<>(listProductsByCategory, HttpStatus.OK);
     }
