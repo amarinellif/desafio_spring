@@ -1,4 +1,8 @@
-<h1>🚀 Desafio Spring - Wave 6</h1>
+<h1 align="center">🚀 Desafio Spring - Wave 6 🚀</h1>
+
+<p align="center">
+  <img align="" alt="mascoteJava" src="https://github.com/gabiazevedo/java-codes/blob/main/java_gif.gif" height="200px" width="100%" />
+</p>
 
 <p> Repositório criado para hospedar o código do primeiro Touchpoint do Bootcamp IT Java.
 </p>
@@ -10,6 +14,8 @@ Trata-se de uma API REST aplicada ao contexto de vendas.
 Foram implementadas as seguintes funcionalidades, sendo classificados em requisitos obrigatórios (RO),
 Requisitos bônus (RB) e Sugestões de melhorias (SM):
 </p>
+
+---
 
 <h3>Requisitos obrigatórios</h3>
 <p>
@@ -26,6 +32,8 @@ Requisitos bônus (RB) e Sugestões de melhorias (SM):
   
 </p>
 
+---
+
 <h3>Requisitos bônus</h3>
 <p>
   
@@ -35,6 +43,8 @@ Requisitos bônus (RB) e Sugestões de melhorias (SM):
 - Busca de lista de produtos filtrados por categoria (RO-13);
   
 </p>
+
+---
 
 <h3>Melhorias implementadas</h3>
 <p>
@@ -48,18 +58,19 @@ Requisitos bônus (RB) e Sugestões de melhorias (SM):
 
 </p>
 
-<h2>🛠 Dependecies</h2>
-<p>
+---
 
-- Spring Boot Dev Tools;
-- Spring Boot Web;
-- Lombok;
+## 🛠 Dependencies ##
 
-</p>
+🍃 Spring Boot Dev Tools;
 
-<h2>  📝 Autores </h2>
-<p>
+🍃 Spring Boot Web;
 
-Projeto desenvolvido por Amanda, Diovana, Gabriela, Rafael, Thiago frozzi e Thiago almeida. 
+🌶️ Lombok;
 
-</p>
+---
+
+## 📝 Autores ##
+
+Desenvolvido com 💛 por Amanda, Diovana, Gabriela, Rafael, Thiago frozzi e Thiago almeida. 
+
