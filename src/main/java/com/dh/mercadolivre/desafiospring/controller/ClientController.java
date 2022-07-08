@@ -26,9 +26,9 @@ public class ClientController {
     private ClientService clientService;
 
     /**
-     *
-     * @param client
-     * @return
+     * Method to register one single client through the endpoint "/api/v1/client".
+     * @param client object of type Client.
+     * @return a single object of type ClientDto writed on client.json file.
      */
     @PostMapping("/client")
     public ResponseEntity<ClientDto> saveClient(@RequestBody Client client) {
@@ -38,8 +38,8 @@ public class ClientController {
     }
 
     /**
-     *
-     * @return
+     * Method that gets a list of objects of type Client through the endpoint "/api/v1/client".
+     * @return a list of objects of type ClientDto writed on client.json file.
      */
     @GetMapping("/client")
     public ResponseEntity<List<ClientDto>> getAllClient() {
@@ -49,9 +49,9 @@ public class ClientController {
     }
 
     /**
-     *
-     * @param state
-     * @return
+     * Method that filter the clients by state.
+     * @param state passed by url variable.
+     * @return a list of objects of type ClientDto filtered by state.
      */
     @GetMapping("/client/{state}")
     public ResponseEntity<List<ClientDto>> getClientFilteredByState(@PathVariable String state) {
