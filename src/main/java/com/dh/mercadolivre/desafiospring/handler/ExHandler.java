@@ -15,7 +15,7 @@ public class ExHandler {
     public ResponseEntity<ExceptionDetails> handlerNotFoundEx(NotFoundException ex) {
         return new ResponseEntity<ExceptionDetails>(
                 ExceptionDetails.builder()
-                        .title("Objeto não encontrado!")
+                        .title("Object Not Found")
                         .status(HttpStatus.NOT_FOUND.value())
                         .message(ex.getMessage())
                         .timestamp(LocalDateTime.now())
@@ -27,7 +27,7 @@ public class ExHandler {
     public ResponseEntity<ExceptionDetails> handlerErrorServer(ServerException ex) {
         return new ResponseEntity<ExceptionDetails>(
                 ExceptionDetails.builder()
-                        .title("Erro no servidor!")
+                        .title("Internal Server Error")
                         .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
                         .message(ex.getMessage())
                         .timestamp(LocalDateTime.now())
@@ -40,7 +40,7 @@ public class ExHandler {
     public ResponseEntity<ExceptionDetails> handlerInsuficientStockException(InsuficientStockException ex) {
         return new ResponseEntity<ExceptionDetails>(
                 ExceptionDetails.builder()
-                        .title("Estoque insuficiente!")
+                        .title("Insufficient Stock")
                         .status(HttpStatus.NOT_ACCEPTABLE.value())
                         .message(ex.getMessage())
                         .timestamp(LocalDateTime.now())
@@ -52,7 +52,7 @@ public class ExHandler {
     public ResponseEntity<ExceptionDetails> handlerClientAlreadyExistsException(ClientAlreadyExistsException ex) {
         return new ResponseEntity<ExceptionDetails>(
                 ExceptionDetails.builder()
-                        .title("Cliente já cadastrado!")
+                        .title("Client Already Exists")
                         .status(HttpStatus.CONFLICT.value())
                         .message(ex.getMessage())
                         .timestamp(LocalDateTime.now())
@@ -65,7 +65,7 @@ public class ExHandler {
     public ResponseEntity<ExceptionDetails> handlerInvalidParamsException(InvalidParamsException ex) {
         return new ResponseEntity<ExceptionDetails>(
                 ExceptionDetails.builder()
-                        .title("Parâmetro inválido!")
+                        .title("Invalid Parameter Type")
                         .status(HttpStatus.BAD_REQUEST.value())
                         .message(ex.getMessage())
                         .timestamp(LocalDateTime.now())
@@ -78,7 +78,7 @@ public class ExHandler {
     public ResponseEntity<ExceptionDetails> handlerClientNotFoundException(ClientNotFoundException ex) {
         return new ResponseEntity<ExceptionDetails>(
                 ExceptionDetails.builder()
-                        .title("Não foi possível encontrar cliente(s)!")
+                        .title("Client Not Found")
                         .status(HttpStatus.NOT_FOUND.value())
                         .message(ex.getMessage())
                         .timestamp(LocalDateTime.now())

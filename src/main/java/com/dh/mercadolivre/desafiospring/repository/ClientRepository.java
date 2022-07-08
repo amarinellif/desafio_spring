@@ -30,7 +30,9 @@ public class ClientRepository {
             clientList = Arrays.asList(mapper.readValue(new File(filePath), Client[].class));
             copyList = new ArrayList<Client>(clientList);
         } catch (Exception e) {
-            throw new ServerException("Could not read the given file!");
+            System.out.println(e.getMessage());
+
+            throw new ServerException("Could not read the given file.");
         }
 
         List<Client> clientAlreadyExists = copyList
@@ -40,7 +42,7 @@ public class ClientRepository {
 
 
         if (clientAlreadyExists.size() > 0) {
-            throw new ClientAlreadyExistsException("Client already exists!");
+            throw new ClientAlreadyExistsException("Client already exists.");
         }
 
         copyList.add(client);
@@ -48,7 +50,7 @@ public class ClientRepository {
         try {
             writer.writeValue(new File(filePath), copyList);
         } catch (Exception e) {
-            throw new ServerException("Could not write the given file!");
+            throw new ServerException("Could not write the given file.");
         }
 
         return client;
@@ -62,7 +64,9 @@ public class ClientRepository {
         try {
             clientList = Arrays.asList(mapper.readValue(new File(filePath), Client[].class));
         } catch (Exception e) {
-            throw new ServerException("Could not read the given file!");
+            System.out.println(e.getMessage());
+
+            throw new ServerException("Could not read the given file.");
         }
 
         return clientList;
@@ -76,7 +80,9 @@ public class ClientRepository {
         try {
             clientList = Arrays.asList(mapper.readValue(new File(filePath), Client[].class));
         } catch (Exception e) {
-            throw new ServerException("Could not read the given file!");
+            System.out.println(e.getMessage());
+
+            throw new ServerException("Could not read the given file.");
         }
 
         List<Client> filteredClientList = clientList
@@ -85,7 +91,7 @@ public class ClientRepository {
                 .collect(Collectors.toList());
 
         if (clientList.size() == 0) {
-            throw new ClientNotFoundException("No client found for this state!");
+            throw new ClientNotFoundException("No client found for this state.");
         }
 
         return filteredClientList;

@@ -37,10 +37,13 @@ public class ProductRepository {
             }
             writer.writeValue(new File(filePath), currentProductCopyList);
         } catch (IIOException e) {
-            System.out.println("Erro no aquivo: " + filePath);
-            throw new ServerException("Algo de errado aconteceu! Tente novamente mais tarde.");
-        } catch (Exception ex) {
-            throw new ServerException("Algo de errado aconteceu! Tente novamente mais tarde.");
+            System.out.println(e.getMessage());
+
+            throw new ServerException(String.format("Could not write or read file %s", filePath));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+            throw new ServerException("Something went wrong.");
         }
 
         return currentProductCopyList;
@@ -66,7 +69,9 @@ public class ProductRepository {
 
             product.setQuantity(updatedProduct.get(0).getQuantity());
         } catch (Exception e) {
-            throw new ServerException("Algo de errado aconteceu! Tente novamente mais tarde.");
+            System.out.println(e.getMessage());
+
+            throw new ServerException("Something went wrong.");
         }
 
         return product;
@@ -91,7 +96,9 @@ public class ProductRepository {
 
             return productList;
         } catch (Exception e) {
-            throw new ServerException("Algo de errado aconteceu! Tente novamente mais tarde.");
+            System.out.println(e.getMessage());
+
+            throw new ServerException("Something went wrong.");
         }
     }
 
@@ -102,10 +109,13 @@ public class ProductRepository {
             listProducts = Arrays.asList
                     (mapper.readValue(new File(filePath), Product[].class));
         } catch (IIOException e) {
-            System.out.println("Erro no aquivo: " + filePath);
-            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
-        } catch (Exception ex) {
-            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
+            System.out.println(e.getMessage());
+
+            throw new ServerException(String.format("Could not read file %s", filePath));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+            throw new ServerException("Something went wrong.");
         }
         
         return listProducts;
@@ -113,37 +123,40 @@ public class ProductRepository {
 
     public Product getProductById(Long productId) {
         ObjectMapper mapper = new ObjectMapper();
-        List<Product> lista = null;
+        List<Product> list = null;
 
         try {
-            lista = Arrays.asList
+            list = Arrays.asList
                     (mapper.readValue(new File(filePath), Product[].class));
         } catch (IIOException e) {
-            System.out.println("Erro no aquivo: " + filePath);
-            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
-        } catch (Exception ex) {
-            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
+            System.out.println(e.getMessage());
+
+            throw new ServerException(String.format("Could not read file %s", filePath));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+            throw new ServerException("Something went wrong.");
         }
 
-        for (Product p : lista) {
+        for (Product p : list) {
             if (p.getProductId().equals(productId)) {
                 return p;
             }
         }
         
-        throw new NotFoundException("Produto inexistente");
+        throw new NotFoundException("No product found.");
     }
 
     public void updateQuantity(Long productId, Integer quantity){
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
-        List<Product> lista = null;
+        List<Product> list = null;
 
         try {
-            lista = Arrays.asList
+            list = Arrays.asList
                     (mapper.readValue(new File(filePath), Product[].class));
 
-            List<Product> copyList = new ArrayList<Product>(lista);
+            List<Product> copyList = new ArrayList<Product>(list);
 
             for (Product p : copyList) {
                 if (p.getProductId().equals(productId)) {
@@ -154,10 +167,13 @@ public class ProductRepository {
             writer.writeValue(new File(filePath), copyList);
 
         } catch (IIOException e) {
-            System.out.println("Erro no aquivo: " + filePath);
-            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
-        } catch (Exception ex) {
-            throw new ServerException("Algo de errado aconteceu. Tente novamente mais tarde.");
+            System.out.println(e.getMessage());
+
+            throw new ServerException(String.format("Could not read or write file %s", filePath));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+            throw new ServerException("Something went wrong.");
         }
 
     }
