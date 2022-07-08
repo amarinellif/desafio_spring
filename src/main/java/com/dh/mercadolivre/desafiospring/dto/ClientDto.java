@@ -5,9 +5,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ *
+ */
 @Getter
+
+/**
+ *
+ */
 @Setter
+
+/**
+ *
+ */
 @NoArgsConstructor
+/**
+ *
+ */
 public class ClientDto {
     private int id;
     private String name;
@@ -15,6 +29,10 @@ public class ClientDto {
     private String city;
     private String state;
 
+    /**
+     *
+     * @param client
+     */
     public ClientDto(Client client) {
         this.id = client.getId();
         this.name = client.getName();

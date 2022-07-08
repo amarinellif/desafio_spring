@@ -49,24 +49,19 @@ public class ProductController {
         return new ResponseEntity<>(productDto, HttpStatus.OK);
     }
 
-<<<<<<< HEAD
     /**
-     * Method to get a list of product by category through the endpoint "/api/v1/articles/category".
-     * @param category received by url.
+     * Method to get a list of product by category through the endpoint "/api/v1/articles/{category}".
+     * @param category received by url variable.
      * @return a list of products of type ProductDto filtered by category name.
      */
-    @GetMapping("/articles/category")
-    public ResponseEntity<List <ProductDto>> getProductsByCategory(@RequestParam String category) {
-=======
     @GetMapping("/articles/{category}")
     public ResponseEntity<List <ProductDto>> getProductsByCategory(@PathVariable String category) {
->>>>>>> c4d3d348d333d28f711c4804c6a2601d3692f975
         List<ProductDto> listProductsByCategory = productService.getProductsByCategory(category);
         return new ResponseEntity<>(listProductsByCategory, HttpStatus.OK);
     }
 
     /**
-     * Method  one single product through the endpoint "/api/v1/articles".
+     * Method that combine filters a list of objects of type Product through the endpoint "/api/v1/articles".
      * @param category received by request parameter.
      * @param freeShipping received by request parameter.
      * @param prestige received by request parameter.
