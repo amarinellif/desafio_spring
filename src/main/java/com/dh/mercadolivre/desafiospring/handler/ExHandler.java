@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-
 import java.time.LocalDateTime;
 
 @ControllerAdvice
@@ -72,6 +71,19 @@ public class ExHandler {
                         .timestamp(LocalDateTime.now())
                         .build(),
                 HttpStatus.BAD_REQUEST
+        );
+    }
+
+    @ExceptionHandler(ClientNotFoundException.class)
+    public ResponseEntity<ExceptionDetails> handlerClientNotFoundException(ClientNotFoundException ex) {
+        return new ResponseEntity<ExceptionDetails>(
+                ExceptionDetails.builder()
+                        .title("Não foi possível encontrar cliente(s)!")
+                        .status(HttpStatus.NOT_FOUND.value())
+                        .message(ex.getMessage())
+                        .timestamp(LocalDateTime.now())
+                        .build(),
+                HttpStatus.NOT_FOUND
         );
     }
 }

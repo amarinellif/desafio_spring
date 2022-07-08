@@ -7,6 +7,8 @@ import com.dh.mercadolivre.desafiospring.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,23 +24,23 @@ public class ClientService implements IClientService {
         String cpfRegex = "(^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$)";
 
         if (client.getName() == null || !client.getName().matches(nameRegex)) {
-             throw new InvalidParamsException("Nome inválido!");
+             throw new InvalidParamsException("Invalid name param");
         }
 
         if (client.getCpf() == null || !client.getCpf().matches(cpfRegex)) {
-            throw new InvalidParamsException("CPF inválido!");
+            throw new InvalidParamsException("Invalid CPF param");
         }
 
         if (client.getAddress() == null) {
-            throw new InvalidParamsException("Endereço inválido!");
+            throw new InvalidParamsException("Invalid address param");
         }
 
         if (client.getCity() == null) {
-            throw new InvalidParamsException("Cidade inválida!");
+            throw new InvalidParamsException("Invalid city param");
         }
 
         if (client.getState() == null) {
-            throw new InvalidParamsException("Estado inválido!");
+            throw new InvalidParamsException("Invalid state param");
         }
 
         Client insertedClient = clientRepository.saveClient(client);
@@ -60,6 +62,26 @@ public class ClientService implements IClientService {
 
     @Override
     public List<ClientDto> getClientFilteredByState(String state) {
-        return null;
+        ArrayList<String> states = new ArrayList<String>(Arrays.asList("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES",
+                "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP",
+                "SE", "TO"));
+
+        List<String> validState = states
+                .stream()
+                .filter(listState -> listState.equals(state))
+                .collect(Collectors.toList());
+
+        if (validState.size() == 0) {
+            throw new InvalidParamsException("Invalid state param");
+        }
+
+        List<Client> clientList = clientRepository.getClientFilteredByState(state);
+
+        List<ClientDto> clientDtoList = clientList
+                .stream()
+                .map(ClientDto::new)
+                .collect(Collectors.toList());
+
+        return clientDtoList;
     }
 }
