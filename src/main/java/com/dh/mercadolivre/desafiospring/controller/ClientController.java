@@ -31,6 +31,10 @@ public class ClientController {
         return new ResponseEntity<List<ClientDto>>(clientList, HttpStatus.OK);
     }
 
-    // @GetMapping("/client/{state}")
-    // public ResponseEntity<List<ClientDto>> getClientFilteredByState(@RequestParam String state) {}
+    @GetMapping("/client/{state}")
+    public ResponseEntity<List<ClientDto>> getClientFilteredByState(@PathVariable String state) {
+        List<ClientDto> clientList = clientService.getClientFilteredByState(state);
+
+        return new ResponseEntity<List<ClientDto>>(clientList, HttpStatus.OK);
+    }
 }
