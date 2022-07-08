@@ -38,6 +38,7 @@ public class ProductService implements IProductService {
                 .collect(Collectors.toList());
     }
 
+
     /**
      * Method for to save a one product at a time.
      * @param product receives an object of type Product.
@@ -142,9 +143,9 @@ public class ProductService implements IProductService {
             case 1:
                 return productList.stream().sorted((p1, p2) -> p2.getName().compareTo(p1.getName())).collect(Collectors.toList());
             case 2:
-                return productList.stream().sorted((p1, p2) -> p1.getPrice().compareTo(p2.getPrice())).collect(Collectors.toList());
-            case 3:
                 return productList.stream().sorted((p1, p2) -> p2.getPrice().compareTo(p1.getPrice())).collect(Collectors.toList());
+            case 3:
+                return productList.stream().sorted((p1, p2) -> p1.getPrice().compareTo(p2.getPrice())).collect(Collectors.toList());
             default:
                 return productList;
         }
