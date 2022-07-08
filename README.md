@@ -12,6 +12,7 @@
  <a href="#Pré-requisitos">Pré-requisitos</a> • 
  <a href="#Rodando o Servidor">Rodando o Servidor</a> • 
  <a href="#Dependências">Dependências</a> • 
+ <a href="#Coleção-de-Requisições">Coleção de Requisições</a> •
  <a href="#Autores">Autores</a>
 </p>
 
@@ -97,6 +98,11 @@ Foram utilizadas no projeto as seguintes dependências:
 
 ___
 
+## 🌙 Coleção de Requisições 
+
+A coleção de requisições utilizadas para testar os endpoints estão na pasta `src/main/resource`. O arquivo `Desafio-spring.postman_collection.json` pode ser importado em algum cliente HTTP, como o Postman ou o Insomnia.
+
+___
 ## 📝 Autores ##
 
 Desenvolvido com 💛 por Amanda, Diovana, Gabriela, Rafael, Thiago Frozzi e Thiago Almeida. 
