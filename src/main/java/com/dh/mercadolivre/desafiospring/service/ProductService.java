@@ -51,9 +51,9 @@ public class ProductService implements IProductService {
     }
 
     /**
-     *
+     * Method that filters a products list by category name.
      * @param category
-     * @return
+     * @return a list of objects of type Products filtered by category name.
      */
     @Override
     public List<ProductDto> getProductsByCategory(String category) {
