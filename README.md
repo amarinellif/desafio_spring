@@ -72,5 +72,5 @@ Requisitos bônus (RB) e Sugestões de melhorias (SM):
 
 ## 📝 Autores ##
 
-Desenvolvido com 💛 por Amanda, Diovana, Gabriela, Rafael, Thiago frozzi e Thiago almeida. 
+Desenvolvido com 💛 por Amanda, Diovana, Gabriela, Rafael, Thiago Frozzi e Thiago Almeida. 
 
