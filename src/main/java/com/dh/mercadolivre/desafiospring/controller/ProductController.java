@@ -26,7 +26,7 @@ public class ProductController {
     private ProductService productService;
 
     /**
-     * Method that calls the endpoint to register a list of products through the endpoint "/api/v1/insert-article-request.
+     * Method to register a list of products through the endpoint "/api/v1/insert-article-request.
      * @param productList received by request body.
      * @return a list of objects of type Product to the client.
      */
