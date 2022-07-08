@@ -19,15 +19,15 @@ import java.util.stream.Collectors;
 public class ProductService implements IProductService {
 
     /**
-     *
+     * Dependency Injection of the Product Repository.
      */
     @Autowired
     private ProductRepository productRepository;
 
     /**
-     *
+     * Method that saves a list of products.
      * @param productList
-     * @return
+     * @return a list of objects of type ProductDto.
      */
     @Override
     public List<ProductDto> saveProductList(List<Product> productList) {
@@ -39,9 +39,9 @@ public class ProductService implements IProductService {
     }
 
     /**
-     *
-     * @param product
-     * @return
+     * Method for to save a one product at a time.
+     * @param product receives an object of type Product.
+     * @return return a object of type ProductDto.
      */
     @Override
     public ProductDto saveProduct(Product product) {
@@ -65,12 +65,12 @@ public class ProductService implements IProductService {
     }
 
     /**
-     *
-     * @param category
-     * @param freeShipping
-     * @param prestige
-     * @param order
-     * @return
+     * Method that implements filters by category, free shipping, prestige, order through the conditional statements.
+     * @param category category of the product.
+     * @param freeShipping if the product has or hasn't free shipping.
+     * @param prestige classifies the product by acceptance.
+     * @param order filter by order, crescent or descending.
+     * @return a list of products of type ProductDto.
      */
     public List<ProductDto> getByFilterOrdered(String category, Boolean freeShipping, String prestige, Integer order) {
         List<Product> listProducts = productRepository.getAllProducts();
@@ -99,10 +99,10 @@ public class ProductService implements IProductService {
     }
 
     /**
-     *
+     * Filter the products by category name.
      * @param productList
      * @param category
-     * @return
+     * @return a list of the products of type Product filtered by category name.
      */
     private static List<Product> filterByCategoryName(List<Product> productList, String category) {
 
@@ -110,30 +110,30 @@ public class ProductService implements IProductService {
     }
 
     /**
-     *
+     * Filter the products by free shipping.
      * @param productList
      * @param freeShipping
-     * @return
+     * @return a list of the products of type Product filtered by free shipping.
      */
     private static List<Product> filterByFreeShipping(List<Product> productList, Boolean freeShipping) {
         return productList.stream().filter((product) -> freeShipping.equals(product.getFreeShipping())).collect(Collectors.toList());
     }
 
     /**
-     *
+     * Filter the products by prestige.
      * @param productList
      * @param prestige
-     * @return
+     * @return a list of the products of type Product filtered by prestige.
      */
     private static List<Product> filterByPrestige(List<Product> productList, String prestige) {
         return productList.stream().filter((product) -> prestige.equals(product.getPrestige())).collect(Collectors.toList());
     }
 
     /**
-     *
+     * Method that sort the products by name and price (crescent or descending).
      * @param productList
      * @param order
-     * @return
+     * @return a list of the products of type Product sorted.
      */
     private static List<Product> sortByOrder(List<Product> productList, Integer order) {
         switch (order) {
