@@ -1,6 +1,7 @@
 package com.dh.mercadolivre.desafiospring.repository;
 
 import com.dh.mercadolivre.desafiospring.exceptions.ClientAlreadyExistsException;
+import com.dh.mercadolivre.desafiospring.exceptions.ClientNotFoundException;
 import com.dh.mercadolivre.desafiospring.exceptions.ServerException;
 import com.dh.mercadolivre.desafiospring.model.Client;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
@@ -65,5 +66,28 @@ public class ClientRepository {
         }
 
         return clientList;
+    }
+
+    public List<Client> getClientFilteredByState(String state) {
+        ObjectMapper mapper = new ObjectMapper();
+
+        List<Client> clientList = null;
+
+        try {
+            clientList = Arrays.asList(mapper.readValue(new File(filePath), Client[].class));
+        } catch (Exception e) {
+            throw new ServerException("Could not read the given file!");
+        }
+
+        List<Client> filteredClientList = clientList
+                .stream()
+                .filter(client -> client.getState().equals(state))
+                .collect(Collectors.toList());
+
+        if (clientList.size() == 0) {
+            throw new ClientNotFoundException("No client found for this state!");
+        }
+
+        return filteredClientList;
     }
 }
