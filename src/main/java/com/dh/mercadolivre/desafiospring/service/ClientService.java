@@ -12,12 +12,23 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ *
+ */
 @Service
 public class ClientService implements IClientService {
 
+    /**
+     *
+     */
     @Autowired
     private ClientRepository clientRepository;
 
+    /**
+     *
+     * @param client
+     * @return
+     */
     @Override
     public ClientDto saveClient(Client client) {
         String nameRegex = "[A-Z][a-z]* [A-Z][a-z]*";
@@ -48,6 +59,10 @@ public class ClientService implements IClientService {
         return new ClientDto(insertedClient);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<ClientDto> getAllClient() {
         List<Client> clientList = clientRepository.getAllClient();
@@ -60,6 +75,11 @@ public class ClientService implements IClientService {
         return clientDtoList;
     }
 
+    /**
+     *
+     * @param state
+     * @return
+     */
     @Override
     public List<ClientDto> getClientFilteredByState(String state) {
         ArrayList<String> states = new ArrayList<String>(Arrays.asList("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES",

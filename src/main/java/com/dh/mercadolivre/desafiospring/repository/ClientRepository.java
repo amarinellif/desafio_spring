@@ -15,10 +15,18 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ *
+ */
 @Repository
 public class ClientRepository {
     private final String filePath = "src/main/resources/client.json";
 
+    /**
+     *
+     * @param client
+     * @return
+     */
     public Client saveClient(Client client) {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
@@ -56,6 +64,10 @@ public class ClientRepository {
         return client;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Client> getAllClient() {
         ObjectMapper mapper = new ObjectMapper();
 
@@ -72,6 +84,11 @@ public class ClientRepository {
         return clientList;
     }
 
+    /**
+     *
+     * @param state
+     * @return
+     */
     public List<Client> getClientFilteredByState(String state) {
         ObjectMapper mapper = new ObjectMapper();
 

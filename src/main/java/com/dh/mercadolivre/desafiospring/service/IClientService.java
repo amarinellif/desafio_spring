@@ -5,10 +5,27 @@ import com.dh.mercadolivre.desafiospring.model.Client;
 
 import java.util.List;
 
+/**
+ *
+ */
 public interface IClientService {
+    /**
+     *
+     * @param client
+     * @return
+     */
     ClientDto saveClient(Client client);
 
+    /**
+     *
+     * @return
+     */
     List<ClientDto> getAllClient();
 
+    /**
+     *
+     * @param state
+     * @return
+     */
     List<ClientDto> getClientFilteredByState(String state);
 }

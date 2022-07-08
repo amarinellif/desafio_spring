@@ -1,5 +1,6 @@
 package com.dh.mercadolivre.desafiospring.repository;
 
+import com.dh.mercadolivre.desafiospring.exceptions.NotFoundException;
 import com.dh.mercadolivre.desafiospring.exceptions.ServerException;
 import com.dh.mercadolivre.desafiospring.model.Product;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
@@ -185,6 +186,11 @@ public class ProductRepository {
         throw new NotFoundException("No product found.");
     }
 
+    /**
+     *
+     * @param productId
+     * @param quantity
+     */
     public void updateQuantity(Long productId, Integer quantity){
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
