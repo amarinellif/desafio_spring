@@ -16,10 +16,25 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Class ProductRepository that will do the persistence of the data.
+ * Receive an attribute path that indicates a path for to save product.json file.
+ * Will read and save the data through the POST request.
+ * @author Diovana Valim, Amanda Marinelli e Rafael Cavalcanti
+ * @version 0.0.1
+ * @see java.lang.Object
+ */
+
 @Repository
 public class ProductRepository {
     private final String filePath = "src/main/resources/product.json";
 
+    /**
+     * Method that receive a list of type Product. This method will read the data, write and save the return on a product.json file.
+     * @param productList
+     * @throws ServerException - in case of error on action of read and write the data.
+     * @return a list of objects of type Products on products.json file.
+     */
     public List<Product> saveProductList(List<Product> productList) {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
@@ -49,6 +64,12 @@ public class ProductRepository {
         return currentProductCopyList;
     }
 
+    /**
+     * Method that receive one object of type Product. This method will read the data, write and save the return on a product.json file.
+     * @param product receive an object of type Product.
+     * @exception - in case of error on action of read and write the data.
+     * @return an object product of type Product.
+     */
     public Product saveProduct(Product product) {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
@@ -77,6 +98,14 @@ public class ProductRepository {
         return product;
     }
 
+    /**
+     * Method that verifies if the product already exists on the product.json file.
+     * If not exists insert (write) the data on the product.json file.
+     * If exists increments the quantity of the product.
+     * @param productList list of objects of type Product
+     * @param product object of type Product
+     * @return an updated list of objects of type Products on products.json file.
+     */
     public List<Product> insertProduct(List<Product> productList, Product product) {
         try {
             List<Product> hasProduct = productList
@@ -102,6 +131,11 @@ public class ProductRepository {
         }
     }
 
+    /**
+     * Method for read the product.json and get a list of products and return on a request GET.
+     * @throws ServerException
+     * @return a list of products of type Product.
+     */
     public List<Product> getAllProducts() {
         ObjectMapper mapper = new ObjectMapper();
         List<Product> listProducts = null;
@@ -121,6 +155,12 @@ public class ProductRepository {
         return listProducts;
     }
 
+    /**
+     * Method for read the file and get product filtering by id.
+     * @param productId receive the productId attribute.
+     * @throws ServerException
+     * @return an object product of type Product.
+     */
     public Product getProductById(Long productId) {
         ObjectMapper mapper = new ObjectMapper();
         List<Product> list = null;

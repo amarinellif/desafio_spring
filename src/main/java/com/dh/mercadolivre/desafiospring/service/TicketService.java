@@ -11,12 +11,26 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that implements the methods of the ITicketService Interface
+ * @author  Rafael Cavalcante
+ * @version 0.0.1
+ */
 @Service
 public class TicketService implements ITicketService{
 
+    /**
+     * Dependency Injection of the Product Repository.
+     */
     @Autowired
     private ProductRepository productRepo;
 
+    /**
+     * Method tha receives a ticket list of type Purchase Request that returns a list of tickets
+     * with the total of the purchase updated.
+     * @param ticketList receive a list of purchase requests.
+     * @return a list of tickets of type PurchaseRequest with the attribute total updated.
+     */
     @Override
     public Ticket requestTicket(List<PurchaseRequest> ticketList) {
         List<Product> productlist = new ArrayList<Product>();
