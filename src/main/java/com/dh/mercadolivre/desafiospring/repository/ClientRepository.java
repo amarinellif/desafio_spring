@@ -16,16 +16,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- *
+ * Class ClientRepository that will do the persistence of the data.
+ * Receive an attribute path that indicates a path for to save client.json file.
+ * Will read and save the data through the POST request.
+ * @author Diovana Valim
+ * @version 0.0.1
+ * @see java.lang.Object
  */
 @Repository
 public class ClientRepository {
     private final String filePath = "src/main/resources/client.json";
 
     /**
-     *
+     * Method will read an object Client, save on cliente.json and return the same client.
      * @param client
-     * @return
+     * @throws ServerException - in case of error on action of read and write the data.
+     * @throws ClientAlreadyExistsException - in case of the client already exists.
+     * @return client
      */
     public Client saveClient(Client client) {
         ObjectMapper mapper = new ObjectMapper();
@@ -65,8 +72,9 @@ public class ClientRepository {
     }
 
     /**
-     *
-     * @return
+     * Method to read the file clients.json and get the list of client and return on a request GET.
+     * @throws ServerException
+     * @return a clients list.
      */
     public List<Client> getAllClient() {
         ObjectMapper mapper = new ObjectMapper();
@@ -85,9 +93,10 @@ public class ClientRepository {
     }
 
     /**
-     *
-     * @param state
-     * @return
+     * Method to read the file clients.json and get the clients list filtered by state and return on a request GET.
+     * @throws ServerException
+     * @param  state (String)
+     * @return a clients list.
      */
     public List<Client> getClientFilteredByState(String state) {
         ObjectMapper mapper = new ObjectMapper();
