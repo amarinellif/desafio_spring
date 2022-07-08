@@ -1,7 +1,5 @@
 package com.dh.mercadolivre.desafiospring.repository;
 
-import com.dh.mercadolivre.desafiospring.exceptions.NotFoundException;
-
 import com.dh.mercadolivre.desafiospring.exceptions.ServerException;
 import com.dh.mercadolivre.desafiospring.model.Product;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;

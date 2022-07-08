@@ -8,14 +8,26 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.LocalDateTime;
 
+/**
+ *
+ */
 @ControllerAdvice
 public class ExHandler {
 
+    /**
+     *
+     * @param ex
+     * @return
+     */
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ExceptionDetails> handlerNotFoundEx(NotFoundException ex) {
-        return new ResponseEntity<ExceptionDetails>(
+        return new ResponseEntity<>(
                 ExceptionDetails.builder()
+<<<<<<< HEAD
+                        .title("Not Found Object")
+=======
                         .title("Object Not Found")
+>>>>>>> c4d3d348d333d28f711c4804c6a2601d3692f975
                         .status(HttpStatus.NOT_FOUND.value())
                         .message(ex.getMessage())
                         .timestamp(LocalDateTime.now())
@@ -23,9 +35,14 @@ public class ExHandler {
                 HttpStatus.NOT_FOUND);
     }
 
+    /**
+     *
+     * @param ex
+     * @return
+     */
     @ExceptionHandler(ServerException.class)
     public ResponseEntity<ExceptionDetails> handlerErrorServer(ServerException ex) {
-        return new ResponseEntity<ExceptionDetails>(
+        return new ResponseEntity<>(
                 ExceptionDetails.builder()
                         .title("Internal Server Error")
                         .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
@@ -35,12 +52,20 @@ public class ExHandler {
                 HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-
+    /**
+     *
+     * @param ex
+     * @return
+     */
     @ExceptionHandler(InsuficientStockException.class)
     public ResponseEntity<ExceptionDetails> handlerInsuficientStockException(InsuficientStockException ex) {
-        return new ResponseEntity<ExceptionDetails>(
+        return new ResponseEntity<>(
                 ExceptionDetails.builder()
+<<<<<<< HEAD
+                        .title("Insufficient stock!")
+=======
                         .title("Insufficient Stock")
+>>>>>>> c4d3d348d333d28f711c4804c6a2601d3692f975
                         .status(HttpStatus.NOT_ACCEPTABLE.value())
                         .message(ex.getMessage())
                         .timestamp(LocalDateTime.now())
