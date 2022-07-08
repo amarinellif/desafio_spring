@@ -1,6 +1,7 @@
 package com.dh.mercadolivre.desafiospring.repository;
 
 import com.dh.mercadolivre.desafiospring.exceptions.ClientAlreadyExistsException;
+import com.dh.mercadolivre.desafiospring.exceptions.ServerException;
 import com.dh.mercadolivre.desafiospring.model.Client;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,7 +29,7 @@ public class ClientRepository {
             clientList = Arrays.asList(mapper.readValue(new File(filePath), Client[].class));
             copyList = new ArrayList<Client>(clientList);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            throw new ServerException("Could not read the given file!");
         }
 
         List<Client> clientAlreadyExists = copyList
@@ -46,9 +47,23 @@ public class ClientRepository {
         try {
             writer.writeValue(new File(filePath), copyList);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            throw new ServerException("Could not write the given file!");
         }
 
         return client;
+    }
+
+    public List<Client> getAllClient() {
+        ObjectMapper mapper = new ObjectMapper();
+
+        List<Client> clientList = null;
+
+        try {
+            clientList = Arrays.asList(mapper.readValue(new File(filePath), Client[].class));
+        } catch (Exception e) {
+            throw new ServerException("Could not read the given file!");
+        }
+
+        return clientList;
     }
 }

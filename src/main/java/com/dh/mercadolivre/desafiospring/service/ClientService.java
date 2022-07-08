@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ClientService implements IClientService {
@@ -47,7 +48,14 @@ public class ClientService implements IClientService {
 
     @Override
     public List<ClientDto> getAllClient() {
-        return null;
+        List<Client> clientList = clientRepository.getAllClient();
+
+        List<ClientDto> clientDtoList = clientList
+                .stream()
+                .map(ClientDto::new)
+                .collect(Collectors.toList());
+
+        return clientDtoList;
     }
 
     @Override
