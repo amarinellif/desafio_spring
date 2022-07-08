@@ -7,20 +7,27 @@ import com.dh.mercadolivre.desafiospring.exceptions.ServerException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 
 import java.time.LocalDateTime;
 
+/**
+ *
+ */
 @ControllerAdvice
 public class ExHandler {
 
+    /**
+     *
+     * @param ex
+     * @return
+     */
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ExceptionDetails> handlerNotFoundEx(NotFoundException ex) {
-        return new ResponseEntity<ExceptionDetails>(
+        return new ResponseEntity<>(
                 ExceptionDetails.builder()
-                        .title("Objeto não encontrado.")
+                        .title("Not Found Object")
                         .status(HttpStatus.NOT_FOUND.value())
                         .message(ex.getMessage())
                         .timestamp(LocalDateTime.now())
@@ -28,11 +35,16 @@ public class ExHandler {
                 HttpStatus.NOT_FOUND);
     }
 
+    /**
+     *
+     * @param ex
+     * @return
+     */
     @ExceptionHandler(ServerException.class)
     public ResponseEntity<ExceptionDetails> handlerErrorServer(ServerException ex) {
-        return new ResponseEntity<ExceptionDetails>(
+        return new ResponseEntity<>(
                 ExceptionDetails.builder()
-                        .title("Erro no servidor.")
+                        .title("Internal Server Error")
                         .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
                         .message(ex.getMessage())
                         .timestamp(LocalDateTime.now())
@@ -40,12 +52,16 @@ public class ExHandler {
                 HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-
+    /**
+     *
+     * @param ex
+     * @return
+     */
     @ExceptionHandler(InsuficientStockException.class)
     public ResponseEntity<ExceptionDetails> handlerInsuficientStockException(InsuficientStockException ex) {
-        return new ResponseEntity<ExceptionDetails>(
+        return new ResponseEntity<>(
                 ExceptionDetails.builder()
-                        .title("Estoque insuficiente.")
+                        .title("Insufficient stock!")
                         .status(HttpStatus.NOT_ACCEPTABLE.value())
                         .message(ex.getMessage())
                         .timestamp(LocalDateTime.now())

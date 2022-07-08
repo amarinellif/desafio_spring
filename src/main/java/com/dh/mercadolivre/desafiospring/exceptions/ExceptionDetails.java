@@ -7,6 +7,10 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
+/**
+ * @author
+ * @version 0.0.1
+ */
 public class ExceptionDetails {
     private String title;
     private int status;
