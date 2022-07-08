@@ -1,0 +1,431 @@
+{
+	"info": {
+		"_postman_id": "4d7865f0-c32d-476a-b34e-fd9ab27b8a2c",
+		"name": "Desafio-spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product list registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"productId\": 1,\n        \"name\": \"Serra de Bancada\",\n        \"category\": \"Ferramentas\",\n        \"brand\": \"FORTGPRO\",\n        \"price\": 1800.00,\n        \"quantity\": 5,\n        \"freeShipping\": true,\n        \"prestige\": \"****\"\n    },\n    {\n        \"productId\": 2,\n        \"name\": \"Furadeira\",\n        \"category\": \"Ferramentas\",\n        \"brand\": \"Black & Decker\",\n        \"price\": 500,\n        \"quantity\": 7,\n        \"freeShipping\": true,\n        \"prestige\": \"****\"\n    },\n    {\n        \"productId\": 3,\n        \"name\": \"Soldadora\",\n        \"category\": \"Ferramentas\",\n        \"brand\": \"Black & Decker\",\n        \"price\": 350.00,\n        \"quantity\": 10,\n        \"freeShipping\": true,\n        \"prestige\": \"***\"\n    },\n    {\n        \"productId\": 4,\n        \"name\": \"Chuteira\",\n        \"category\": \"Esportes\",\n        \"brand\": \"Adidas\",\n        \"price\": 235.00,\n        \"quantity\": 6,\n        \"freeShipping\": true,\n        \"prestige\": \"*****\"\n    },\n    {\n        \"productId\": 5,\n        \"name\": \"Mini Cama elastica\",\n        \"category\": \"Esportes\",\n        \"brand\": \"Starboard\",\n        \"price\": 183.00,\n        \"quantity\": 4,\n        \"freeShipping\": true,\n        \"prestige\": \"*****\"\n    },\n    {\n        \"productId\": 6,\n        \"name\": \"Camiseta\",\n        \"category\": \"Esportes\",\n        \"brand\": \"Topper\",\n        \"price\": 80.00,\n        \"quantity\": 2,\n        \"freeShipping\": false,\n        \"prestige\": \"***\"\n    },\n    {\n        \"productId\": 7,\n        \"name\": \"Redmi Note 9\",\n        \"category\": \"Celulares\",\n        \"brand\": \"Xiaomi\",\n        \"price\": 2800.00,\n        \"quantity\": 15,\n        \"freeShipping\": true,\n        \"prestige\": \"****\"\n    },\n    {\n        \"productId\": 8,\n        \"name\": \"Smartwatch\",\n        \"category\": \"Celulares\",\n        \"brand\": \"Noga\",\n        \"price\": 1200.00,\n        \"quantity\": 5,\n        \"freeShipping\": true,\n        \"prestige\": \"**\"\n    },\n    {\n        \"productId\": 9,\n        \"name\": \"Camisa\",\n        \"category\": \"Roupas\",\n        \"brand\": \"Fila\",\n        \"price\": 79.00,\n        \"quantity\": 2,\n        \"freeShipping\": false,\n        \"prestige\": \"***\"\n    },\n    {\n        \"productId\": 10,\n        \"name\": \"Calcas\",\n        \"category\": \"Roupas\",\n        \"brand\": \"Oakley\",\n        \"price\": 73.00,\n        \"quantity\": 6,\n        \"freeShipping\": false,\n        \"prestige\": \"***\"\n    },\n    {\n        \"productId\": 11,\n        \"name\": \"Meias\",\n        \"category\": \"Roupas\",\n        \"brand\": \"Gonew\",\n        \"price\": 10.00,\n        \"quantity\": 8,\n        \"freeShipping\": false,\n        \"prestige\": \"*\"\n    },\n    {\n        \"productId\": 12,\n        \"name\": \"Shorts\",\n        \"category\": \"Roupas\",\n        \"brand\": \"Lacoste\",\n        \"price\": 275.00,\n        \"quantity\": 9,\n        \"freeShipping\": true,\n        \"prestige\": \"***\"\n    }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/insert-articles-request",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"insert-articles-request"
+					]
+				},
+				"description": "Endpoint to register an array of products on the database. if a product that already exists the quantity of the product in the database is increased instead of creating a repeated one.\n\nExpected body format (JSON):\n\n[\n    {\n        \"productId\" (Long)\n        \"name\": (String),\n        \"category\": (String),\n        \"brand\": (String),\n        \"price\": (Double),\n        \"quantity\": (Integer),\n        \"freeShipping\": (Boolean),\n        \"prestige\": (String)\n    },\n    {...}\n]\nresponse format:\n[\n     {\n             \"productId\":(Long),\n              \"name\":(String),\n              \"quantity\":(Integer)\n      },\n      {...}\n]"
+			},
+			"response": []
+		},
+		{
+			"name": "Single product registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productId\": 1,\n    \"name\": \"Serra de Bancada\",\n    \"category\": \"Ferramentas\",\n    \"brand\": \"FORTGPRO\",\n    \"price\": 1800.00,\n    \"quantity\": 5,\n    \"freeShipping\": true,\n    \"prestige\": \"****\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/insert-article-request",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"insert-article-request"
+					]
+				},
+				"description": "Endpoint to register a single product on the database. if the product already exists the quantity of the product in the database is increased instead of creating a repeated one.\n\nExpected body format JSON:\n\n{\n   \"productId\" (Long)\n    \"name\": (String),\n    \"category\": (String),\n    \"brand\": (String),\n    \"price\": (Double),\n    \"quantity\": (Integer),\n    \"freeShipping\": (Boolean),\n    \"prestige\": (String)\n    },\nresponse format:\n\n{\n     \"productId\":(Long),\n     \"name\":(String),\n     \"quantity\":(Integer)\n},"
+			},
+			"response": []
+		},
+		{
+			"name": "List all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/articles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"articles"
+					]
+				},
+				"description": "This endpoint returns a list of all the products in the database \n\nresponse format: \n\n[\n{\n\"productId\":(Long),\n\"name\":(String),\n\"quantity\":(Integer)\n},\n{...}\n]\n\nsome filters can be applied on this endpoint by setting the following parameters on the URL\n\n?category=categoryName\n?freeShipping=true\n?prestige=****\n\nthe response can be ordered by setting the parameter order on the URL by the following criteria:\n\norder=0 -> alphabetically increasing\norder=1 -> alphabetically descending\norder=2 -> by highest price\norder=3 -> by lowest price\n\n\nall these filters can be used simultaneously and can be ordered by any criteria."
+			},
+			"response": [
+				{
+					"name": "List All",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/articles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Filter by category",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/articles?category=Roupas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Roupas"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Filter by category & free shipping",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/articles?category=esportes&freeShipping=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "esportes"
+								},
+								{
+									"key": "freeShipping",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Filter by free shipping & prestige",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/articles?freeShipping=true&prestige=****",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							],
+							"query": [
+								{
+									"key": "freeShipping",
+									"value": "true"
+								},
+								{
+									"key": "prestige",
+									"value": "****"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Ordered alphabetically",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/articles?order=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Ordered alphabetically descending",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/articles?order=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Filtered by category prestige and ordere by lowest price",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/articles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "List products by category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/articles/category/Roupas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"articles",
+						"category",
+						"Roupas"
+					]
+				},
+				"description": "this is a separate end point to filter only by category\n\n\nresponse format:\n\n[\n{\n\"productId\":(Long),\n\"name\":(String),\n\"quantity\":(Integer)\n},\n{...}\n]"
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n[\n    {\n        \"productId\":1,\n        \"quantity\":5\n    },\n    {\n        \"productId\":2,\n        \"quantity\":5\n    }\n]\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/purchase-request",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"purchase-request"
+					]
+				},
+				"description": "this end point accepts a purchase request whit a list of products id and the quantity of each item and returns a ticket with an id a list of the products purchased and the total price of the sale.\n\nif the quantity of products on the database is not enough to supply the request an error indicating insufficient stock will be returned\n\n\nExpected body format (JSON)\n\n[\n    {\n        \"productId\":(Long),\n        \"quantity\":(Integer)\n    },\n    {...}\n]\n\nresponse Format\n\n{\n    \"id\": (Long),\n    \"articles\": [\n        {\n            \"productId\": (Long),\n            \"name\": (String),\n            \"category\": (String),\n            \"brand\": (String),\n            \"prestige\": (String),\n            \"price\": (Double),\n            \"quantity\": (Integer),\n            \"freeShipping\": (Boolean)\n        },\n        {...}\n    ],\n    \"total\": (Double)\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Register new client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n    \"id\" : 1,\n  \"name\" : \"Diovana Valim\",\n  \"cpf\" : \"000.000.000-00\",\n  \"address\" : \"Rua Luiz Oscar de Carvalho\",\n  \"city\" : \"Florianopólis\",\n  \"state\" : \"SC\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/client",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"client"
+					]
+				},
+				"description": "this endpoint is used to register a new client into the database\n\n\nexpected body format (JSON):\n\n\n{  \n   \"id\" : (Long),\n  \"name\" : (String),\n  \"cpf\" : (String),\n  \"address\" : (String),\n  \"city\" : (String),\n  \"state\" : (String)\n}\n\nresponse format:\n{  \n   \"id\" : (Long),\n  \"name\" : (String),\n  \"address\" : (String),\n  \"city\" : (String),\n  \"state\" : (String)\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "List all clients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/client",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"client"
+					]
+				},
+				"description": "this endpoint returns a list of all the clients in the database \n\n\nresponse format:\n{  \n   \"id\" : (Long),\n  \"name\" : (String),\n  \"address\" : (String),\n  \"city\" : (String),\n  \"state\" : (String)\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "List clients by state",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/client/SC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"client",
+						"SC"
+					]
+				},
+				"description": "this endpoint returns a list of clients in the database filtered by their state\n\n\nresponse format:\n{  \n   \"id\" : (Long),\n  \"name\" : (String),\n  \"address\" : (String),\n  \"city\" : (String),\n  \"state\" : (String)\n}"
+			},
+			"response": []
+		}
+	]
+}
