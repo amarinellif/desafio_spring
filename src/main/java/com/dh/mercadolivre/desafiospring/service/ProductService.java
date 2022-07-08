@@ -9,12 +9,26 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Class that implements the methods of the IProductService interface.
+ * @author Diovana Valim, Gabriela Azevedo, Rafael Cavalcanti, Thiago Frozzi, Thiago Guimarães, Amanda Marinelli
+ * @version 0.0.1
+ * @see java.lang.Object
+ */
 @Service
 public class ProductService implements IProductService {
 
+    /**
+     *
+     */
     @Autowired
     private ProductRepository productRepository;
 
+    /**
+     *
+     * @param productList
+     * @return
+     */
     @Override
     public List<ProductDto> saveProductList(List<Product> productList) {
         List<Product> updatedProductList = productRepository.saveProductList(productList);
@@ -24,7 +38,11 @@ public class ProductService implements IProductService {
                 .collect(Collectors.toList());
     }
 
-
+    /**
+     *
+     * @param product
+     * @return
+     */
     @Override
     public ProductDto saveProduct(Product product) {
         Product insertedProduct = productRepository.saveProduct(product);
@@ -32,6 +50,11 @@ public class ProductService implements IProductService {
         return new ProductDto(insertedProduct);
     }
 
+    /**
+     *
+     * @param category
+     * @return
+     */
     @Override
     public List<ProductDto> getProductsByCategory(String category) {
         List<Product> productsList = productRepository.getAllProducts();
@@ -41,6 +64,14 @@ public class ProductService implements IProductService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param category
+     * @param freeShipping
+     * @param prestige
+     * @param order
+     * @return
+     */
     public List<ProductDto> getByFilterOrdered(String category, Boolean freeShipping, String prestige, Integer order) {
         List<Product> listProducts = productRepository.getAllProducts();
 
@@ -67,19 +98,43 @@ public class ProductService implements IProductService {
 
     }
 
+    /**
+     *
+     * @param productList
+     * @param category
+     * @return
+     */
     private static List<Product> filterByCategoryName(List<Product> productList, String category) {
 
         return productList.stream().filter((product) -> category.equals(product.getCategory())).collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param productList
+     * @param freeShipping
+     * @return
+     */
     private static List<Product> filterByFreeShipping(List<Product> productList, Boolean freeShipping) {
         return productList.stream().filter((product) -> freeShipping.equals(product.getFreeShipping())).collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param productList
+     * @param prestige
+     * @return
+     */
     private static List<Product> filterByPrestige(List<Product> productList, String prestige) {
         return productList.stream().filter((product) -> prestige.equals(product.getPrestige())).collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param productList
+     * @param order
+     * @return
+     */
     private static List<Product> sortByOrder(List<Product> productList, Integer order) {
         switch (order) {
             case 0:
