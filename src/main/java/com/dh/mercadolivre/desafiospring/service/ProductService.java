@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 /**
  * Class that implements the methods of the IProductService interface.
- * @author Diovana Valim, Gabriela Azevedo, Rafael Cavalcanti, Thiago Frozzi, Thiago Guimarães, Amanda Marinelli
+ * @author Diovana Valim, Gabriela Azevedo, Rafael Cavalcante, Thiago Frozzi, Thiago Guimarães, Amanda Marinelli
  * @version 0.0.1
  * @see java.lang.Object
  */
@@ -40,7 +40,7 @@ public class ProductService implements IProductService {
 
 
     /**
-     * Method for to save a one product at a time.
+     * Method to save  one product at a time.
      * @param product receives an object of type Product.
      * @return return a object of type ProductDto.
      */
@@ -66,7 +66,7 @@ public class ProductService implements IProductService {
     }
 
     /**
-     * Method that implements filters by category, free shipping, prestige, order through the conditional statements.
+     * Method that implements filters by category, free shipping, prestige, order through conditional statements.
      * @param category category of the product.
      * @param freeShipping if the product has or hasn't free shipping.
      * @param prestige classifies the product by acceptance.

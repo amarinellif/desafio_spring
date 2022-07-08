@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * Class ProductRepository that will do the persistence of the data.
  * Receive an attribute path that indicates a path for to save product.json file.
  * Will read and save the data through the POST request.
- * @author Diovana Valim, Amanda Marinelli e Rafael Cavalcanti
+ * @author Diovana Valim, Amanda Marinelli e Rafael Cavalcante
  * @version 0.0.1
  * @see java.lang.Object
  */
