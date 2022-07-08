@@ -9,15 +9,17 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.time.LocalDateTime;
 
 /**
- *
+ * class that handle exceptions that are thrown in the code
+ * @author  Rafael Cavalcante,  Thiago Frozzi, Amanda Marinelli
+ * @version 0.0.1
  */
 @ControllerAdvice
 public class ExHandler {
 
     /**
-     *
+     *method that captures a NotFoundException and build a response to send via http
      * @param ex
-     * @return
+     * @return an object with the details of the exception
      */
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ExceptionDetails> handlerNotFoundEx(NotFoundException ex) {
@@ -32,9 +34,9 @@ public class ExHandler {
     }
 
     /**
-     *
+     *method that captures a ServerException and build a response to send via http
      * @param ex
-     * @return
+     * @return an object with the details of the exception
      */
     @ExceptionHandler(ServerException.class)
     public ResponseEntity<ExceptionDetails> handlerErrorServer(ServerException ex) {
@@ -49,9 +51,9 @@ public class ExHandler {
     }
 
     /**
-     *
+     *method that captures a InsuficientStockException and build a response to send via http
      * @param ex
-     * @return
+     * @return an object with the details of the exception
      */
     @ExceptionHandler(InsuficientStockException.class)
     public ResponseEntity<ExceptionDetails> handlerInsuficientStockException(InsuficientStockException ex) {
@@ -66,9 +68,9 @@ public class ExHandler {
     }
 
     /**
-     *
+     *method that captures a ClientAlreadyExistsException and build a response to send via http
      * @param ex
-     * @return
+     * @return an object with the details of the exception
      */
     @ExceptionHandler(ClientAlreadyExistsException.class)
     public ResponseEntity<ExceptionDetails> handlerClientAlreadyExistsException(ClientAlreadyExistsException ex) {
@@ -84,9 +86,9 @@ public class ExHandler {
     }
 
     /**
-     *
+     *method that captures a InvalidParamsException and build a response to send via http
      * @param ex
-     * @return
+     * @return an object with the details of the exception
      */
     @ExceptionHandler(InvalidParamsException.class)
     public ResponseEntity<ExceptionDetails> handlerInvalidParamsException(InvalidParamsException ex) {
@@ -102,9 +104,9 @@ public class ExHandler {
     }
 
     /**
-     *
+     *method that captures a ClientNotFoundException and build a response to send via http
      * @param ex
-     * @return
+     * @return an object with the details of the exception
      */
     @ExceptionHandler(ClientNotFoundException.class)
     public ResponseEntity<ExceptionDetails> handlerClientNotFoundException(ClientNotFoundException ex) {

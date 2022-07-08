@@ -187,7 +187,7 @@ public class ProductRepository {
     }
 
     /**
-     *
+     * a method to update the quantity of a product in the database
      * @param productId
      * @param quantity
      */
