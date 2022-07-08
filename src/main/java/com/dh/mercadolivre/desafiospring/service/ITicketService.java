@@ -5,6 +5,17 @@ import com.dh.mercadolivre.desafiospring.model.Ticket;
 
 import java.util.List;
 
+/**
+ * Interface that implement a method that receive a list of purchase requests and returns
+ * a list of tickets (all the information of the purchase requests).
+ * @author Rafael Cavalcante
+ * @version 0.0.1
+ */
 public interface ITicketService {
+
+    /**
+     * Implements the method on Tickets Service file.
+     * @param ticketList receive a list of purchase requests.
+     */
     Ticket requestTicket(List<PurchaseRequest> ticketList);
 }
