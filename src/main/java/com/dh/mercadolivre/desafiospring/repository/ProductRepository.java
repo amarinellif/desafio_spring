@@ -123,7 +123,7 @@ public class ProductRepository {
     /**
      * Method for read the product.json and get a list of products and return on a request GET.
      * @throws ServerException
-     * @return a list of products of type Product
+     * @return a list of products of type Product.
      */
     public List<Product> getAllProducts() {
         ObjectMapper mapper = new ObjectMapper();
