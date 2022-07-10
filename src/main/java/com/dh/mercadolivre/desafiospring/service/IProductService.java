@@ -13,29 +13,33 @@ import java.util.List;
 public interface IProductService {
 
     /**
+     * Method that gets all products filtered by category name.
      * @param category
-     * @return
+     * @return a list of objects of type ProductDto filtered by category name.
      */
     List<ProductDto> getProductsByCategory(String category);
 
     /**
+     * Method that read, write and save a list of products on the products.json file.
      * @param productList
-     * @return
+     * @return a list of objects of type ProductDto.
      */
     List<ProductDto> saveProductList(List<Product> productList);
 
     /**
+     * Method that read, write and save one single product.
      * @param product
-     * @return
+     * @return a one single object of type ProductDto.
      */
     ProductDto saveProduct(Product product);
 
     /**
+     * Method that implements a combined filters.
      * @param category
      * @param freeShipping
      * @param prestige
      * @param order
-     * @return
+     * @return a list of objects of type ProductDto filtered by the parameters passed through request params.
      */
     List<ProductDto> getByFilterOrdered(String category, Boolean freeShipping, String prestige, Integer order);
 }

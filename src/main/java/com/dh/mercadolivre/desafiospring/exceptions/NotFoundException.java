@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class NotFoundException extends RuntimeException {
 
     /**
-     * Call super and pass param message error about not found product/client
+     * Call super and pass the param error message about a not found product/client
      * @param message
      */
     public NotFoundException(String message) {

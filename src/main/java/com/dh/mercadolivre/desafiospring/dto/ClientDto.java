@@ -6,22 +6,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- *
+ * Method Getter implemented by Lombok lib for get access the private attributes of the Client Class
  */
 @Getter
 
 /**
- *
+ * Method Setter implemented by Lombok lib for set the private attributes of the Client Class
  */
 @Setter
 
 /**
- *
+ * Method Default Constructor implemented by Lombok lib.
  */
 @NoArgsConstructor
-/**
- *
- */
 public class ClientDto {
     private int id;
     private String name;
@@ -30,8 +27,8 @@ public class ClientDto {
     private String state;
 
     /**
-     *
-     * @param client
+     * Constructor method that receives an object of type Client and returns an ClientDto object
+     * @param client object of type Client.
      */
     public ClientDto(Client client) {
         this.id = client.getId();

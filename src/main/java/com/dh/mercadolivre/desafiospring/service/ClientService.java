@@ -13,21 +13,24 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- *
+ * Class that implements the methods of the IClientService interface.
+ * @author Diovana Valim
+ * @version 0.0.1
  */
 @Service
 public class ClientService implements IClientService {
 
     /**
-     *
+     * Dependency Injection of the Product Repository.
      */
     @Autowired
     private ClientRepository clientRepository;
 
     /**
-     *
-     * @param client
-     * @return
+     * Method that receives an object of type Client, validates the attributes (name and cpf)
+     * and save the new registry on the client.json file.
+     * @param client object of type Client.
+     * @return an object of type ClientDto.
      */
     @Override
     public ClientDto saveClient(Client client) {
@@ -60,8 +63,8 @@ public class ClientService implements IClientService {
     }
 
     /**
-     *
-     * @return
+     * Method that gets all clients writed in the client.json file.
+     * @return a list of objects of type ClientDto.
      */
     @Override
     public List<ClientDto> getAllClient() {
@@ -76,9 +79,9 @@ public class ClientService implements IClientService {
     }
 
     /**
-     *
+     * Method that filter the clients by the state.
      * @param state
-     * @return
+     * @return a list of objects of type ClientDto filtered by the state attribute.
      */
     @Override
     public List<ClientDto> getClientFilteredByState(String state) {
