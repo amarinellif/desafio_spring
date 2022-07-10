@@ -102,6 +102,12 @@ ___
 
 A coleção de requisições utilizadas para testar os endpoints estão na pasta `src/main/resource`. O arquivo `Desafio-spring.postman_collection.json` pode ser importado em algum cliente HTTP, como o Postman ou o Insomnia.
 
+---
+
+## <img alt="coffee_cup" src="https://user-images.githubusercontent.com/80721339/173413428-56d4f208-6f5f-437d-ad91-cb878a90a01a.png" width="30px" /> Java Docs
+
+Criamos também uma documentação detalhada da aplicação, utilizando a ferramenta Java Docs, que pode ser consultada [aqui](http://localhost:63342/desafio-spring/target/site/apidocs/index-all.html?_ijt=sh8jod7l89t3oncfu2f9quboun). 
+
 ___
 ## 📝 Autores ##
 
