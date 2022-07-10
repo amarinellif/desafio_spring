@@ -13,7 +13,8 @@
  <a href="#Rodando o Servidor">Rodando o Servidor</a> • 
  <a href="#Dependências">Dependências</a> • 
  <a href="#Coleção-de-Requisições">Coleção de Requisições</a> •
- <a href="#Autores">Autores</a>
+ <a href="#Autores">Autores</a> •
+ <a href="#Java Docs">Java Docs</a>
 </p>
 
 ## 🖊 Sobre o Projeto
