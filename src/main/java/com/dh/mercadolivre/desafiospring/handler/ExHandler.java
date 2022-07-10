@@ -18,7 +18,7 @@ public class ExHandler {
 
     /**
      * Method that captures a NotFoundException and build a response to send through http request.
-     * @param ex
+     * @param ex exception captured by the NotFoundException class
      * @return an object with the details of the exception
      */
     @ExceptionHandler(NotFoundException.class)
@@ -35,7 +35,7 @@ public class ExHandler {
 
     /**
      * Method that captures a ServerException and build a response to send through http request.
-     * @param ex
+     * @param ex exception captured by the ServerException class
      * @return an object with the details of the exception
      */
     @ExceptionHandler(ServerException.class)
@@ -52,7 +52,7 @@ public class ExHandler {
 
     /**
      * Method that captures a InsuficientStockException and build a response to send through http request
-     * @param ex
+     * @param ex exception captured by the InsufucientStockException class
      * @return an object with the details of the exception
      */
     @ExceptionHandler(InsuficientStockException.class)
@@ -69,7 +69,7 @@ public class ExHandler {
 
     /**
      *method that captures a ClientAlreadyExistsException and build a response to send through http request.
-     * @param ex
+     * @param ex exception captured by the ClientAlreadyExistsException class
      * @return an object with the details of the exception
      */
     @ExceptionHandler(ClientAlreadyExistsException.class)
@@ -87,7 +87,7 @@ public class ExHandler {
 
     /**
      * Method that captures a InvalidParamsException and build a response to send through http request.
-     * @param ex
+     * @param ex exception captured by the InvalidParamsException class
      * @return an object with the details of the exception
      */
     @ExceptionHandler(InvalidParamsException.class)
@@ -105,7 +105,7 @@ public class ExHandler {
 
     /**
      * Method that captures a ClientNotFoundException and build a response to send through http request.
-     * @param ex
+     * @param ex exception captured by the ClientNotFoundException class
      * @return an object with the details of the exception
      */
     @ExceptionHandler(ClientNotFoundException.class)

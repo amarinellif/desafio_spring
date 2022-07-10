@@ -11,7 +11,7 @@ import java.util.List;
 public interface IClientService {
     /**
      * Method that receive an object of type Client, read and write a new client on the client.json file.
-     * @param client
+     * @param client an object of type Client
      * @return a list of objects of type ClientDto.
      */
     ClientDto saveClient(Client client);
@@ -24,7 +24,7 @@ public interface IClientService {
 
     /**
      * Method that filter a list of clients by the state attribute.
-     * @param state
+     * @param state String
      * @return a list of objects of type ClientDto filtered by the state attribute.
      */
     List<ClientDto> getClientFilteredByState(String state);

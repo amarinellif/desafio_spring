@@ -29,7 +29,7 @@ public class TicketService implements ITicketService{
      * Method tha receives a ticket list of type Purchase Request that returns a list of tickets
      * with the total of the purchase updated.
      * @param ticketList receive a list of purchase requests.
-     * @throws InsuficientStockException
+     * @throws InsuficientStockException - in case of error when the stock is insuficient.
      * @return a list of tickets of type PurchaseRequest with the attribute total updated.
      */
     @Override

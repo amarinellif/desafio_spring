@@ -14,7 +14,7 @@ public class ServerException extends RuntimeException {
 
     /**
      * Call super and pass param message error about server error 500
-     * @param message
+     * @param message (String)
      */
     public ServerException(String message) {
         super(message);

@@ -14,7 +14,7 @@ public class ClientAlreadyExistsException extends RuntimeException {
     /**
      * This method is called by the ClientRepository when the user try insert a Client who is already exists
      * and return a customize message
-     * @param message
+     * @param message (String)
      */
     public ClientAlreadyExistsException(String message) {
 

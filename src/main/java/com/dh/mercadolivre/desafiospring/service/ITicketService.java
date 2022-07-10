@@ -16,6 +16,7 @@ public interface ITicketService {
     /**
      * Implements the method on Tickets Service file.
      * @param ticketList receive a list of purchase requests.
+     * @return a list of objects of type PurchaseRequest.
      */
     Ticket requestTicket(List<PurchaseRequest> ticketList);
 }

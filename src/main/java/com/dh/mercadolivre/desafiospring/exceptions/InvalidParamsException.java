@@ -13,7 +13,7 @@ public class InvalidParamsException extends RuntimeException {
 
     /**
      * Call super and pass param message error about Invalid Parameters
-     * @param message
+     * @param message (String)
      */
     public InvalidParamsException(String message) {
         super(message);

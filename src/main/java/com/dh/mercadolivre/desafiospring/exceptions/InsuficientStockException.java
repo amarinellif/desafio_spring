@@ -13,7 +13,7 @@ public class InsuficientStockException extends RuntimeException {
 
     /**
      * Call super and pass param message error about insuficient stock
-     * @param message
+     * @param message (String)
      */
     public InsuficientStockException(String message) {
         super(message);
