@@ -106,7 +106,11 @@ A coleção de requisições utilizadas para testar os endpoints estão na pasta
 
 ## <img alt="coffee_cup" src="https://user-images.githubusercontent.com/80721339/173413428-56d4f208-6f5f-437d-ad91-cb878a90a01a.png" width="30px" /> Java Docs
 
-Criamos também uma documentação detalhada da aplicação, utilizando a ferramenta Java Docs, que pode ser consultada [aqui](http://localhost:63342/desafio-spring/target/site/apidocs/index-all.html?_ijt=rkfig8attg91mp6h4u98dd7mko). 
+Criamos também uma documentação da aplicação, utilizando a ferramenta Java Docs, que pode ser consultada seguindo os passos a seguir: 
+
+1 - À partir da IDE de sua preferência, basta rodar o comando: `mvn javadoc:javadoc`. Esse comando fará o build da documentação e criará uma pasta chamada **target**.
+
+2 - Agora basta localizar o arquivo `index-all.html` -> clicar com o botão direito em "Open" -> escolher o browser de sua preferência. Ao clicar, será aberta uma página contendo a documentação.
 
 ___
 ## 📝 Autores ##
