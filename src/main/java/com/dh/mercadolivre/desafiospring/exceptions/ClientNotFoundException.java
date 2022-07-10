@@ -10,7 +10,7 @@ public class ClientNotFoundException extends RuntimeException {
     /**
      * This method is called by the ClientRepository when the user try filter Clients List filtered by state,
      * and no found for this state return a customize message
-     * @param message
+     * @param message (String)
      */
     public ClientNotFoundException(String message) {
         super(message);

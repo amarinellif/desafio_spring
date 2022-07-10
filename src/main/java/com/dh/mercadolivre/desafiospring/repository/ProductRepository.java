@@ -30,7 +30,7 @@ public class ProductRepository {
 
     /**
      * Method that receive a list of type Product. This method will read the data, write and save the return on a product.json file.
-     * @param productList
+     * @param productList a list of objects of type Product
      * @throws ServerException - in case of error on action of read and write the data.
      * @return a list of objects of type Products on products.json file.
      */
@@ -66,7 +66,7 @@ public class ProductRepository {
     /**
      * Method that receive one object of type Product. This method will read the data, write and save the return on a product.json file.
      * @param product receive an object of type Product.
-     * @exception - in case of error on action of read and write the data.
+     * @throws ServerException in case of error on action of read and write the data.
      * @return an object product of type Product.
      */
     public Product saveProduct(Product product) {
@@ -132,7 +132,7 @@ public class ProductRepository {
 
     /**
      * Method for read the product.json and get a list of products and return on a request GET.
-     * @throws ServerException
+     * @throws ServerException in case of error on action of read and write the data.
      * @return a list of products of type Product.
      */
     public List<Product> getAllProducts() {
@@ -157,7 +157,7 @@ public class ProductRepository {
     /**
      * Method for read the file and get product filtering by id.
      * @param productId receive the productId attribute.
-     * @throws ServerException
+     * @throws ServerException in case of error on action of read and write the data.
      * @return an object product of type Product.
      */
     public Product getProductById(Long productId) {
@@ -188,8 +188,8 @@ public class ProductRepository {
 
     /**
      * Method that update the quantity of a product in the database
-     * @param productId
-     * @param quantity
+     * @param productId Long
+     * @param quantity Integer
      */
     public void updateQuantity(Long productId, Integer quantity){
         ObjectMapper mapper = new ObjectMapper();

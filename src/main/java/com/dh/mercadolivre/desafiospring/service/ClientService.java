@@ -80,7 +80,7 @@ public class ClientService implements IClientService {
 
     /**
      * Method that filter the clients by the state.
-     * @param state
+     * @param state String
      * @return a list of objects of type ClientDto filtered by the state attribute.
      */
     @Override

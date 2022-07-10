@@ -30,7 +30,7 @@ public class TicketController {
 
     /**
      * Method to register a list of tickets (purchase request) through the endpoint "/api/v1/purchase-request".
-     * @param ticketList
+     * @param ticketList a list of objects of type Purchase Request
      * @return a list of objects of type PurchaseRequest
      */
     @PostMapping("/purchase-request")

@@ -29,10 +29,10 @@ public class ClientRepository {
 
     /**
      * Method will read an object Client, save on cliente.json and return the same client.
-     * @param client
+     * @param client String
      * @throws ServerException - in case of error on action of read and write the data.
      * @throws ClientAlreadyExistsException - in case of the client already exists.
-     * @return client
+     * @return an object of type Client
      */
     public Client saveClient(Client client) {
         ObjectMapper mapper = new ObjectMapper();
@@ -73,8 +73,8 @@ public class ClientRepository {
 
     /**
      * Method to read the file clients.json and get the list of client and return on a request GET.
-     * @throws ServerException
-     * @return a clients list.
+     * @throws ServerException - in case of error on action of read and write the data.
+     * @return a list of objects of type Client.
      */
     public List<Client> getAllClient() {
         ObjectMapper mapper = new ObjectMapper();
@@ -94,10 +94,10 @@ public class ClientRepository {
 
     /**
      * Method to read the file clients.json and get the clients list filtered by state and return on a request GET.
-     * @throws ServerException
-     * @throws ClientNotFoundException is called when the user requet filter the list with a state that doesn`t have registered
-     * @param  state (String)
-     * @return a clients list.
+     * @throws ServerException - in case of error on action of read and write the data.
+     * @throws ClientNotFoundException is called when the user request filter the list with a state that doesn`t have registered
+     * @param  state String
+     * @return a list of objects of type Client.
      */
     public List<Client> getClientFilteredByState(String state) {
         ObjectMapper mapper = new ObjectMapper();

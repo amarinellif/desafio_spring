@@ -34,7 +34,7 @@ public class ProductDto {
 
     /**
      * method for constructing an Product Dto from a Product
-     * @param product
+     * @param product an object of type Product
      */
     public ProductDto(Product product) {
         this.productId = product.getProductId();

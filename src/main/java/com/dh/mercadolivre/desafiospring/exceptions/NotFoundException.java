@@ -13,7 +13,7 @@ public class NotFoundException extends RuntimeException {
 
     /**
      * Call super and pass the param error message about a not found product/client
-     * @param message
+     * @param message (String)
      */
     public NotFoundException(String message) {
         super(message);
