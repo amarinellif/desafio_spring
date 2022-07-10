@@ -19,9 +19,6 @@ import lombok.Setter;
  * Method Default Constructor implemented by Lombok lib.
  */
 @NoArgsConstructor
-/**
- * Method Constructor of the Client Class.
- */
 public class ClientDto {
     private int id;
     private String name;

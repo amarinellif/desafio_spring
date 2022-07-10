@@ -95,6 +95,7 @@ public class ClientRepository {
     /**
      * Method to read the file clients.json and get the clients list filtered by state and return on a request GET.
      * @throws ServerException
+     * @throws ClientNotFoundException is called when the user requet filter the list with a state that doesn`t have registered
      * @param  state (String)
      * @return a clients list.
      */

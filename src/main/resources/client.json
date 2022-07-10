@@ -1,1 +1,8 @@
-[]
+[ {
+  "id" : 1,
+  "name" : "Diovana Valim",
+  "cpf" : "000.000.000-00",
+  "address" : "Rua Luiz Oscar de Carvalho",
+  "city" : "Florianopólis",
+  "state" : "SC"
+} ]

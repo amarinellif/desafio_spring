@@ -26,7 +26,7 @@ public class ProductService implements IProductService {
 
     /**
      * Method that saves a list of products.
-     * @param productList
+     * @param productList list of objects
      * @return a list of objects of type ProductDto.
      */
     @Override
@@ -53,7 +53,7 @@ public class ProductService implements IProductService {
 
     /**
      * Method that filters a products list by category name.
-     * @param category
+     * @param category (String)
      * @return a list of objects of type Products filtered by category name.
      */
     @Override
@@ -101,8 +101,8 @@ public class ProductService implements IProductService {
 
     /**
      * Filter the products by category name.
-     * @param productList
-     * @param category
+     * @param productList list of products
+     * @param category (String)
      * @return a list of the products of type Product filtered by category name.
      */
     private static List<Product> filterByCategoryName(List<Product> productList, String category) {
@@ -112,8 +112,8 @@ public class ProductService implements IProductService {
 
     /**
      * Filter the products by free shipping.
-     * @param productList
-     * @param freeShipping
+     * @param productList list of objects
+     * @param freeShipping boolean
      * @return a list of the products of type Product filtered by free shipping.
      */
     private static List<Product> filterByFreeShipping(List<Product> productList, Boolean freeShipping) {
@@ -122,8 +122,8 @@ public class ProductService implements IProductService {
 
     /**
      * Filter the products by prestige.
-     * @param productList
-     * @param prestige
+     * @param productList lis of objects
+     * @param prestige (String)
      * @return a list of the products of type Product filtered by prestige.
      */
     private static List<Product> filterByPrestige(List<Product> productList, String prestige) {
@@ -132,8 +132,8 @@ public class ProductService implements IProductService {
 
     /**
      * Method that sort the products by name and price (crescent or descending).
-     * @param productList
-     * @param order
+     * @param productList list of objects
+     * @param order integer
      * @return a list of the products of type Product sorted.
      */
     private static List<Product> sortByOrder(List<Product> productList, Integer order) {
