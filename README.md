@@ -2,7 +2,7 @@
 <p align="center">Repositório criado para hospedar o código do primeiro Touchpoint do Bootcamp IT Java.</p>
 
 <p align="center">
-  <img align="" alt="mascoteJava" src="https://c.tenor.com/VfOO-2t7eFoAAAAd/developer-tester.gif" height="80%" width="80%" />
+  <img align="" alt="mascoteJava" src="c.tenor.com/VfOO-2t7eFoAAAAd/developer-tester.gif" height="80%" width="80%" />
 </p>
 
 <p align="center">
