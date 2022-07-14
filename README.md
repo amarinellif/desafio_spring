@@ -2,7 +2,7 @@
 <p align="center">Repositório criado para hospedar o código do primeiro Touchpoint do Bootcamp IT Java.</p>
 
 <p align="center">
-  <img align="" alt="mascoteJava" src="https://viagemeturismo.abril.com.br/wp-content/uploads/2016/12/onlineshopping.gif?quality=70&strip=info&resize=850,567" height="100%" width="100%" />
+  <img align="" alt="mascoteJava" src="https://viagemeturismo.abril.com.br/wp-content/uploads/2016/12/onlineshopping.gif?quality=70&strip=info&resize=850,567" height="80%" width="80%" />
 </p>
 
 <p align="center">
